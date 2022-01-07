@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-4 mx-auto">
+            <form novalidate #f="ngForm">
+                <div class="form-group">
+
+                    <label for="buildingName">Nombre del edificio *</label>
+                    <input type="text" class="form-control" required minlength="5" id="buildingName" name="buildingName"
+                    [(ngModel)]="newBuilding.buildingName">
+                    
+                    <label for="hospitalName" *ngIf="!newBuilding.id">Nombre del hospital: *</label>
+                    <select class="form-control" name="hospitalName" id="hospitalName" [(ngModel)]="hospitalName" required *ngIf="!newBuilding.id">
+                        <option [value]="empty"></option>
+                        <option [value]="hospital.id" *ngFor="let hospital of hospitals">{{hospital.hospitalName}}</option>
+                    </select>
+                    
+                </div>
+                <button class="btn btn-success btn-block" [disabled]="!f.valid" (click)='create()' *ngIf="!newBuilding.id; else elseBlock">
+                    <fa-icon [icon]="faPlusSquare" class="mr-1"></fa-icon>Crear</button>
+
+                <ng-template #elseBlock>
+                    <button class="btn btn-success btn-block" [disabled]="!f.valid" (click)='update()'>
+                        <fa-icon [icon]="faEdit"></fa-icon> Actualizar</button>
+                </ng-template>
+            </form>
+        </div>
+    </div>
+</div>

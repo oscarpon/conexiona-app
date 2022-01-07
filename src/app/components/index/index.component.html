@@ -1,0 +1,103 @@
+<div class="container mt-5" *ngIf="isAdmin()">
+<div class="row row-cols-1 row-cols-md-2 g-4">
+  <div class="col">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Administración Cuentas</h5>
+        <p class="card-text">Podrás acceder al listado de cuentas que hay en el sistema.</p>
+        <button class="btn btn-primary" routerLink="/accounts">Cuentas</button>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Usuarios</h5>
+        <p class="card-text">Desde aquí podrás gestionar los usuarios de la aplicación</p>
+        <button class="btn btn-primary" routerLink="/users">Usuarios</button>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Edificios</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+        <button class="btn btn-primary" routerLink="/buildings">Usuarios</button>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Productos</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="col" *ngIf="isGestor() && !isAdmin()">
+  <div class="container">
+    
+    <div class="card mt-5">
+      <div class="card-body">
+        <h5 class="card-title">Hospitales</h5>
+        <p class="card-text">Desde aquí puedes ver los diferentes hospitales de la cuenta.</p>
+        <button class="btn btn-primary">Hospitales</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="card mt-3" style="width: 18rem;">
+          <div class="card-header">
+            Stock
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><a href="#" class="stretched-link">Consultar</a></li>
+            <li class="list-group-item"><a href="#" class="stretched-link"></a>Medicamentos disponibles</li>
+            <li class="list-group-item"><a href="#" class="stretched-link"></a>Informes</li>
+            <li class="list-group-item"><a href="#" class="stretched-link"></a>Historial</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mt-3" style="width: 18rem;">
+          <div class="card-header">
+            Almacenes
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><a href="#" class="stretched-link">Listado</a></li>
+            <li class="list-group-item"><a href="#" class="stretched-link"></a>Gestionar</li>
+            <li class="list-group-item"><a href="#" class="stretched-link"></a>Informe de stock</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mt-3" style="width: 18rem;">
+          <div class="card-header bg-danger text-white">
+            Alertas
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><a href="#" class="stretched-link">Medicamentos</a></li>
+            <li class="list-group-item"><a href="#" class="stretched-link"></a>Enfermería</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+</div>
+<div class="col" *ngIf="isTabletFunc()">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Hospitales</h5>
+      <p class="card-text">Desde aquí puedes gestionar todo lo relativo a las cuentas.</p>
+      <button class="btn btn-primary">Hospitales</button>
+    </div>
+  </div>
+</div>
+
+

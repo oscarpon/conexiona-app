@@ -1,0 +1,70 @@
+<ngx-spinner bdColor = "rgba(255, 255, 255, 0.8)" size = "default" color = "#000000" type = "line-spin-fade" [fullScreen] = "true"><p style="color: black" > Loading... </p></ngx-spinner>
+<div class="container">
+    <div class="row mt-5" *ngIf="account">
+        
+            <h1>{{account.accountName}}</h1>
+        <!--User List-->
+          <div class="card">
+            <h5 class="card-header">Usuarios</h5>
+            <div class="card-body">
+              <div *ngIf="account.users?.length == 0; else elseUsers" class="alert alert-info">No hay usuarios</div>
+              <ng-template #elseUsers>
+                <table class="table table-striped" >
+                  <thead>
+                  <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Email</th>
+                    <th>&nbsp;</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let user of account.users">
+                    <td>{{user.name}}</td>
+                    <td>{{user.userName}}</td>
+                    <td>{{user.email}}</td>
+                    <td>
+                      <button class="btn btn-primary" type="button" name="button"  >Editar</button>
+                      <button type="button" name="button"  class="btn btn-danger ml-1">Eliminar</button>
+                      <button type="button" name="button"  class="btn btn-success ml-1">Acceder</button>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </ng-template>  
+              
+              <a [routerLink]="['/users/add']" class="btn btn-success">Añadir</a>
+            </div>
+          </div>
+
+          <!--Product List-->
+          <div class="card">
+            <h5 class="card-header">Productos</h5>
+            <div class="card-body">
+              <div *ngIf="account.products?.length == 0; else elseProducts" class="alert alert-info">No hay productos</div>
+              <ng-template #elseProducts>
+                <table class="table table-striped" >
+                  <thead>
+                  <tr>
+                    <th scope="col">Nombre de producto: </th>
+                    <th>&nbsp;</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let product of account.products">
+                    <td>{{product.nameProduct}}</td>
+                    <td>
+                      <button class="btn btn-primary" type="button" name="button"  >Editar</button>
+                      <button type="button" name="button"  class="btn btn-danger ml-1">Eliminar</button>
+                      <button type="button" name="button"  class="btn btn-success ml-1">Acceder</button>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </ng-template>  
+              
+              <a href="#" class="btn btn-success">Añadir</a>
+            </div>
+          </div>
+    </div>
+</div>

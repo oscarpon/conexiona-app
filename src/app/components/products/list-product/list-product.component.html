@@ -1,0 +1,48 @@
+<div class="container">
+    
+    <!--<p>{{ myAccountId }}</p>-->
+      
+    <div *ngIf="products?.length == 0" class="alert alert-info mt-2">No hay productos
+    </div>
+   
+    <div class="form-group mt-2">
+      <div class="form-group form-inline">
+          Búsqueda: <input class="form-control ml-2 mr-2" type="text" [(ngModel)]="filterProduct" name="filterProduct"/>
+          <div *ngIf="isAdmin()">
+            Cuenta: <!--<input class="form-control ml-2 mr-2" type="text" [(ngModel)]="filterAccount" name="filterAccount"/>-->
+          <select class="form-control ml-2" id="accountName" [(ngModel)]="filterAccount" name="filterAccount">
+            <option [ngValue]=""></option>
+            <option [value]="account.accountName" *ngFor="let account of accounts">{{account.accountName}}</option>
+          </select>
+          </div>
+          
+        <div class="d-flex">
+          <button class="btn btn-success ml-2" [routerLink]="['/products']">Crear producto</button>
+        </div>
+      </div>
+      
+    </div>
+    <table class="table table-striped" >
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Account</th>
+        
+        <th>&nbsp;</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let i = index ; let product of products | product: filterProduct | product: filterAccount">
+        <td>{{i+1}}</td>
+        <td>{{product.nameProduct}}</td>
+        <td>{{product.account.accountName}}</td>
+        <td>
+          <a [routerLink]="['/products', product.id]"class="btn"><fa-icon [icon]="faEdit"></fa-icon></a>
+          <a (click)='delete(product)' class="btn"><fa-icon [icon]="faTrash"></fa-icon></a>
+          <!--<a [routerLink]="['/auth/detail', user.id]" class="btn"><fa-icon [icon]="faEye"></fa-icon></a>-->
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    </div>

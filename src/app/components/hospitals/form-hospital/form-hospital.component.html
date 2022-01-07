@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-4 mx-auto">
+            <form novalidate #f="ngForm">
+                <div class="form-group">
+                    <label for="hospitalName">Nombre del hospital *</label>
+                    <input type="text" class="form-control" required minlength="5" id="hospitalName" name="hospitalName"
+                    [(ngModel)]="newHospital.hospitalName" >
+
+                    <label for="phone">Teléfono de contacto *</label>
+                    <input type="text" class="form-control" id="phone" name="phone"
+                    [(ngModel)]="newHospital.phone" required maxlength="9">
+
+                    <label for="address">Dirección *</label>
+                    <input type="text" class="form-control" id="address" name="address"
+                    [(ngModel)]="newHospital.address" required minlength="5">
+
+                    <label for="zipCode">Código postal *</label>
+                    <input type="text" class="form-control" id="zipCode" name="zipCode"
+                    [(ngModel)]="newHospital.zipCode" required maxlength="5" minlength="5">
+
+                    <label for="hospitalName">Ciudad *</label>
+                    <input type="text" class="form-control" id="city" name="city"
+                    [(ngModel)]="newHospital.city" required minlength="5">
+
+                    <label for="provinces">Provincia *</label>
+                    <select class="form-control" id="province" name="province" [(ngModel)]="newHospital.province" required>
+                        <option [value]="province" *ngFor="let province of provinces">{{province}}</option>
+                    </select>
+                    <div *ngIf="isAdmin()">
+                        <label for="accountName" *ngIf="!newHospital.id">Cuenta *: </label>
+                        <select class="form-control" id="accountName" name="accountName" [(ngModel)]="accountName" required *ngIf="!newHospital.id">
+                            <option [value]="empty"></option>
+                            <option [value]="account.id" *ngFor="let account of accounts">{{account.accountName}}</option>
+                         </select>
+                    </div>
+                    
+
+                </div>
+                <button class="btn btn-success btn-block" [disabled]="!f.valid" (click)='create()' *ngIf="!newHospital.id; else elseBlock">
+                    <fa-icon [icon]="faPlusSquare" class="mr-1"></fa-icon>Crear</button>
+
+                <ng-template #elseBlock>
+                    <button class="btn btn-success btn-block" [disabled]="!f.valid" (click)='update()'>
+                        <fa-icon [icon]="faEdit"></fa-icon> Actualizar</button>
+                </ng-template>
+
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+<div class="container">
+    <div *ngIf="hospitals?.length == 0" class="alert alert-info">No hay hospitales</div>
+    
+      <div class="form-group mt-2">
+        <div class="form-group form-inline">
+          <div class="row">
+            <div class="col">
+              <input class="form-control ml-2 mr-2" type="text" [(ngModel)]="filterHospital" name="filtterHospital" placeholder="Búsqueda"/>
+            </div>
+            <div class="col" *ngIf="isAdmin()">
+              <div class="input-group" >
+                <label class="input-group-text" for="inputGroupSelect01">Cuenta: </label>
+                <select class="form-control" id="accountName" [(ngModel)]="filterAccount" name="filterAccount">
+                  <option [ngValue]=""></option>
+                  <option [value]="account.accountName" *ngFor="let account of accounts">{{account.accountName}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="col">
+              <div class="input-group">
+                <label class="input-group-text" for="inputGroupSelect01">Provincia: </label>
+                <select class="form-control" id="accountName" [(ngModel)]="filterProvince" name="filterProvince">
+                  <option [ngValue]=""></option>
+                  <option [value]="province" *ngFor="let province of provinces">{{province}}</option>
+                </select>
+              </div>
+              
+            </div>
+            <div class="col">
+              <div class="d-flex">
+                <button class="btn btn-success ml-2" [routerLink]="['/hospitals/add']">Crear hospital</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    
+
+    <table class="table table-striped" >
+        <thead>
+        <tr>
+          <th scope="col">Hospital Name</th>
+          <th scope="col">Phone</th>
+          <th scope="col">City</th>
+          <th scope="col">Province</th>
+          <th scope="col">Cuenta</th>
+          <th>&nbsp;</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let hospital of hospitals | hospital:filterHospital | hospital:filterAccount | hospital:filterProvince" >
+          <td >{{hospital.hospitalName}}</td>
+          <td >{{hospital.phone}}</td>
+          <td >{{hospital.city}}</td>
+          <td >{{hospital.province}}</td>
+          <td >{{hospital.account.accountName}}</td>
+          
+          <td >
+            <a [routerLink]="['/hospitals', hospital.id]"class="btn"><fa-icon [icon]="faEdit"></fa-icon></a>
+            <a (click)='delete(hospital)' class="btn"><fa-icon [icon]="faTrash"></fa-icon></a>
+            <!--<a [routerLink]="['/auth/detail', user.id]" class="btn"><fa-icon [icon]="faEye"></fa-icon></a>-->
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+</div>

@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-4 mx-auto">
+            <form novalidate #f="ngForm">
+                <div class="form-group">
+                    <label for="nombre">Nombre completo:</label>
+                    <input type="text" class="form-control" name="name" id="name"
+                    [(ngModel)]="newUser.name" required>
+                    <label for="nombre">Nombre de usuario:</label>
+                    <input type="text" class="form-control" name="userName" id="userName"
+                    [(ngModel)]="newUser.userName" required>
+                    <label for="nombre">Email:</label>
+                    <input type="email" class="form-control" name="email" id="email"
+                    [(ngModel)]="newUser.email" required>
+                    <label for="nombre" *ngIf="!newUser.id" >Contraseña:</label>
+                    <input type="password" class="form-control" name="password" id="password"
+                    [(ngModel)]="newUser.password" required *ngIf="!newUser.id" >
+                    <label for="nombre" *ngIf="!newUser.id" >Repite contraseña:</label>
+                    <input type="password" class="form-control" name="password" id="password"
+                    [(ngModel)]="repeatPassword" required *ngIf="!newUser.id" >
+                    <label for="nombre">Rol de usuario:</label>
+                    <select class="form-control" id="roles" name="roles" required [(ngModel)]="rol">
+                        <option [value]="rol" *ngFor="let rol of rolesList">{{rol}}</option>
+                    </select>
+                    <div *ngIf="isAdmin()">
+                        <label for="nombre" *ngIf="!newUser.id">Cuenta: </label>
+                        <select class="form-control" id="accountName" name="accountName" [(ngModel)]="accountName" required *ngIf="!newUser.id">
+                            <option [value]="empty"></option>
+                            <option [value]="account.id" *ngFor="let account of accounts">{{account.accountName}}</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-success btn-block mt-2" [disabled]="!f.valid" (click)='create()' *ngIf="!newUser.id; else elseBlock">
+                        <i class="fas fa-plus-circle"></i> Crear</button>
+                        <ng-template #elseBlock>
+                            <button class="btn btn-success btn-block mt-2" [disabled]="!f.valid" (click)='update()'>
+                                <fa-icon [icon]="faEdit"></fa-icon> Actualizar</button>
+                        </ng-template>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

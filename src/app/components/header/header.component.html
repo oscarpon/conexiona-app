@@ -1,0 +1,33 @@
+<div *ngIf="isLogged()">
+  <nav class="navbar navbar-light bg-light">
+    <div class="dropdown ml-auto">
+      
+      <button
+        class="btn btn-black dropdown-toggle"
+        type="button"
+        id="dropdownMenuButton"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+      <fa-icon [icon]="faUser" class="mr-1"></fa-icon>
+        Perfil
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li *ngIf="!isLogged()">
+          <a class="dropdown-item" routerLink="/login">Login</a>
+        </li>
+        <li *ngIf="isLogged()">
+          <a class="dropdown-item" (click)="onLogOut()"
+            >Logout<fa-icon [icon]="faDoorOpen" class="ml-1"></fa-icon
+          ></a>
+        </li>
+        <li>
+          <a class="dropdown-item" [routerLink]="['/updatePassword']"
+            >Setup<fa-icon [icon]="faKey" class="ml-1"></fa-icon
+          ></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>

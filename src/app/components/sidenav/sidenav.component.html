@@ -1,0 +1,93 @@
+<!--https://bootstrapious.com/p/bootstrap-sidebar-->
+<div *ngIf="isLogged()">
+  <nav id="sidebar">
+    <div class="sidebar-header">
+      <a href="/index"><h3>Kanbansense</h3></a>
+    </div>
+
+    <ul class="list-unstyled components">
+      <li>
+        <a [routerLink]="['/index']"><fa-icon [icon]="faHome" class="mr-2"></fa-icon>Inicio</a>
+      </li>
+      <li *ngIf="isAdmin()">
+        <a
+          href="#homeSubmenu"
+          data-toggle="collapse"
+          aria-expanded="false"
+          class="dropdown-toggle"
+          ><fa-icon [icon]="faIdCardAlt" class="mr-2"></fa-icon>Cuentas</a
+        >
+        <ul class="collapse list-unstyled" id="homeSubmenu">
+          <li>
+            <a [routerLink]="['/accounts/add']">Añadir</a>
+          </li>
+          <li>
+            <a [routerLink]="['/accounts']">Ver</a>
+          </li>
+        </ul>
+      </li>
+      <li *ngIf="isGestor()">
+        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><fa-icon [icon]="faUsers" class="mr-2"></fa-icon>Usuarios</a>
+        <ul class="collapse list-unstyled" id="pageSubmenu">
+          <!--If is admin-->
+          <li>
+            <a [routerLink]="['/users/add']" *ngIf="isAdmin()">Añadir</a>
+          </li>
+          <li>
+            <a [routerLink]="['/users']" *ngIf="isAdmin()">Ver</a>
+          </li>
+
+          <!--If is gestor-->
+          <li>
+            <a [routerLink]="['/users', myAccountId]" *ngIf="!isAdmin() && isGestor()">Ver</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#productsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><fa-icon [icon]="faPills" class="mr-2"></fa-icon>Productos</a>
+        <ul class="collapse list-unstyled" id="productsSubmenu">
+          <li>
+            <a [routerLink]="['/products']">Añadir</a>
+          </li>
+          <li>
+            <a [routerLink]="['/products/all']">Ver</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#hospitalsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><fa-icon [icon]="faHospital" class="mr-2"></fa-icon>Hospitales</a>
+        <ul class="collapse list-unstyled" id="hospitalsSubmenu">
+          <li>
+            <a [routerLink]="['/hospitals/add']">Añadir</a>
+          </li>
+          <li>
+            <a [routerLink]="['/hospitals']">Ver</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#wareHouseSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><fa-icon [icon]="faBoxOpen" class="mr-2"></fa-icon>Almacenes</a>
+        <ul class="collapse list-unstyled" id="wareHouseSubmenu">
+          <li>
+            <a href="#">Añadir</a>
+          </li>
+          <li>
+            <a [routerLink]="['/warehouses']">Ver</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#buildingsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><fa-icon [icon]="faBuilding" class="mr-2"></fa-icon>Edificios</a>
+        <ul class="collapse list-unstyled" id="buildingsSubmenu">
+          <li>
+            <a [routerLink]="['/buildings/add']">Añadir</a>
+          </li>
+          <li>
+            <a [routerLink]="['/buildings']">Ver</a>
+          </li>
+        </ul>
+      </li>
+      
+    </ul>
+  </nav>
+</div>

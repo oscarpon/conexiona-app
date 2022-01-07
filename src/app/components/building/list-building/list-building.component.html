@@ -1,0 +1,65 @@
+<div class="container">
+
+    <div *ngIf="buildings?.length == 0" class="alert alert-info mt-2">No hay edificios
+    </div>
+
+    <div class="form-group mt-2">
+      <div class="form-group form-inline">
+        <div class="row">
+          <div class="col">
+            <input class="form-control ml-2 mr-2" type="text" [(ngModel)]="filterBuilding" name="filterBuilding" placeholder="Búsqueda"/>
+          </div>
+          <div class="col">
+            <div class="input-group">
+              <label class="input-group-text" for="inputGroupSelect01">Hospital: </label>
+              <select class="form-control" id="hospitalName" [(ngModel)]="filterHospital" name="filterHospital">
+                <option [ngValue]=""></option>
+                <option [value]="hospital.hospitalName" *ngFor="let hospital of hospitals">{{hospital.hospitalName}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col" *ngIf="isAdmin()">
+            <div class="input-group">
+              <label class="input-group-text" for="inputGroupSelect01">Cuenta: </label>
+              <select class="form-control" id="accountName" [(ngModel)]="filterAccount" name="filterAccount">
+                <option [ngValue]=""></option>
+                <option [value]="account.accountName" *ngFor="let account of accounts">{{account.accountName}}</option>
+              </select>
+            </div>
+            
+          </div>
+          <div class="col">
+            <div class="d-flex">
+              <button class="btn btn-success ml-2" [routerLink]="['/buildings/add']">Crear Edificio</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <table class="table table-striped" >
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Building Name</th>
+          <th scope="col">Hospital</th>
+          <th scope="col">Account</th>
+          <th>&nbsp;</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let i = index ; let building of buildings | building: filterBuilding | building: filterHospital | building: filterAccount">
+          <td>{{i+1}}</td>
+          <td>{{building.buildingName}}</td>
+          <td>{{building.hospital.hospitalName}}</td>
+          <td>{{building.hospital.account.accountName}}</td>
+          <td>
+            <a [routerLink]="['/buildings', building.id]"class="btn"><fa-icon [icon]="faEdit"></fa-icon></a>
+            <a (click)='delete(building)' class="btn"><fa-icon [icon]="faTrash"></fa-icon></a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+
+</div>
