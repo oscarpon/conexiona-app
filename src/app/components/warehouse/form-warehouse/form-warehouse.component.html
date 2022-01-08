@@ -4,22 +4,26 @@
             <form novalidate #f="ngForm">
                 <label for="wareHouseName">Nombre:</label>
                 <input type="text" class="form-control" id="wareHouseName" name="wareHouseName"
-                [(ngModel)]="newWareHouse.wareHouseName">
+                    [(ngModel)]="newWareHouse.wareHouseName">
                 <label for="floor">Planta:</label>
-                <input type="text" class="form-control" id="floor" name="floor"
-                [(ngModel)]="newWareHouse.floor">
+                <input type="text" class="form-control" id="floor" name="floor" [(ngModel)]="newWareHouse.floor">
                 <label for="building" *ngIf="!newWareHouse.id">Edificio:</label>
-                <select class="form-control" name="building" id="building" [(ngModel)]="building" required *ngIf="!newWareHouse.id">
+                <select class="form-control" name="building" id="building" [(ngModel)]="building" required
+                    *ngIf="!newWareHouse.id">
                     <option [value]="empty"></option>
-                    <option [value]="building.id" *ngFor="let building of buildings">{{building.buildingName}} - {{building.hospital.hospitalName}}</option>
+                    <option [value]="building.id" *ngFor="let building of buildings">{{building.buildingName}} -
+                        {{building.hospital.hospitalName}}</option>
                 </select>
-                <button class="btn btn-success btn-block mt-2" [disabled]="!f.valid" (click)='create()' *ngIf="!newWareHouse.id; else elseBlock">
-                    <fa-icon [icon]="faPlusSquare" class="mr-1"></fa-icon>Crear</button>
-                
+                <button class="btn btn-success btn-block mt-2" [disabled]="!f.valid" (click)='create()'
+                    *ngIf="!newWareHouse.id; else elseBlock">
+                    <fa-icon [icon]="faPlusSquare" class="mr-1"></fa-icon>Crear
+                </button>
+
 
                 <ng-template #elseBlock>
                     <button class="btn btn-success btn-block mt-2" [disabled]="!f.valid" (click)='update()'>
-                        <fa-icon [icon]="faEdit"></fa-icon> Actualizar</button>
+                        <fa-icon [icon]="faEdit"></fa-icon> Actualizar
+                    </button>
                 </ng-template>
 
             </form>

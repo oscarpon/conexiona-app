@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormWarehouseComponent } from '../../warehouse/form-warehouse/form-warehouse.component';
 
 @Component({
   selector: 'app-warehouse-product',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WarehouseProductComponent implements OnInit {
 
+  showFormVisible = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  showForm(){
+    return !this.showFormVisible;
   }
 
 }

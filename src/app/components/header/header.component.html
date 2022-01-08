@@ -1,6 +1,6 @@
 <div *ngIf="isLogged()">
   <nav class="navbar navbar-light bg-light">
-    <div class="dropdown ml-auto">
+    <div class="dropdown">
       
       <button
         class="btn btn-black dropdown-toggle"
@@ -11,7 +11,7 @@
         aria-expanded="false"
       >
       <fa-icon [icon]="faUser" class="mr-1"></fa-icon>
-        Perfil
+        {{userName}}
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <li *ngIf="!isLogged()">

@@ -16,7 +16,6 @@ import { ListHospitalsComponent } from '../../hospitals/list-hospitals/list-hosp
 
 
 
-
 @Component({
   selector: 'app-list-warehouse',
   templateUrl: './list-warehouse.component.html',
