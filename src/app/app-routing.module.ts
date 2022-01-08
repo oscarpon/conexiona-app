@@ -14,6 +14,8 @@ import { IndexComponent } from './components/index/index.component';
 import { ListProductComponent } from './components/products/list-product/list-product.component';
 import { ProductsComponent } from './components/products/products/products.component';
 import { ListUsersComponent } from './components/users/list-users/list-users.component';
+import { FormWarehouseProductComponent } from './components/warehouse-product/form-warehouse-product/form-warehouse-product/form-warehouse-product.component';
+import { WarehouseProductComponent } from './components/warehouse-product/warehouse-product/warehouse-product.component';
 import { FormWarehouseComponent } from './components/warehouse/form-warehouse/form-warehouse.component';
 import { ListWarehouseComponent } from './components/warehouse/list-warehouse/list-warehouse.component';
 import { AdminGuardService } from './guards/admin-guard.service';
@@ -46,7 +48,10 @@ const routes: Routes = [
   {path: 'updatePassword', component: UpdatePasswordComponent},
   {path: 'warehouses', component: ListWarehouseComponent},
   {path: 'warehouse/add', component: FormWarehouseComponent},
-  {path: 'warehouse/:id', component: FormWarehouseComponent}
+  {path: 'warehouse/:id', component: FormWarehouseComponent},
+  {path: 'warehouse-product', component: WarehouseProductComponent},
+  {path: 'warehouse-product/add', component: FormWarehouseProductComponent}
+  
 
 ];
 

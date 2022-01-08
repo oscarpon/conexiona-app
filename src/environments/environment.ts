@@ -8,7 +8,8 @@ export const environment = {
   accountUrl: 'http://localhost:5000/accounts/',
   hospitalUrl: 'http://localhost:5000/hospital/',
   buildingUrl: 'http://localhost:5000/buildings/',
-  wareHouseUrl: 'http://localhost:5000/warehouse/'
+  wareHouseUrl: 'http://localhost:5000/warehouse/',
+  wareHouseProductUrl: 'http://localhost:5000/warehouse-product/',
 
 };
 

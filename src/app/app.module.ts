@@ -37,6 +37,9 @@ import { ListWarehouseComponent } from './components/warehouse/list-warehouse/li
 import { FormWarehouseComponent } from './components/warehouse/form-warehouse/form-warehouse.component';
 import { WarehousePipe } from './pipes/warehouse.pipe';
 import { UpdatePasswordComponent } from './components/auth/update-password/update-password.component';
+import { ListWarehouseProductComponent } from './components/warehouse-product/list-warehouse-product/list-warehouse-product/list-warehouse-product.component';
+import { FormWarehouseProductComponent } from './components/warehouse-product/form-warehouse-product/form-warehouse-product/form-warehouse-product.component';
+import { WarehouseProductComponent } from './components/warehouse-product/warehouse-product/warehouse-product.component';
 
 
 
@@ -73,7 +76,10 @@ import { UpdatePasswordComponent } from './components/auth/update-password/updat
     ListWarehouseComponent,
     FormWarehouseComponent,
     UpdatePasswordComponent,
-    WarehousePipe
+    WarehousePipe,
+    ListWarehouseProductComponent,
+    FormWarehouseProductComponent,
+    WarehouseProductComponent
   ],
   imports: [
     BrowserModule,

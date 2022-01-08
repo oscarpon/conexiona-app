@@ -1,0 +1,20 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { WarehouseProduct } from '../models/warehouseProduct';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class WarehouseProductService {
+
+  warehouseProductUrl = environment.wareHouseProductUrl;
+
+  constructor(private http: HttpClient) { }
+
+  public new(newWarehouseProduct: WarehouseProduct, wareHouseId: string): Observable<any>{
+      return this.http.post<any>(this.warehouseProductUrl + `add/${wareHouseId}`, newWarehouseProduct);
+  }
+
+}
