@@ -18,4 +18,12 @@ export class WarehouseProductService {
       return this.http.post<any>(this.warehouseProductUrl + `add`, newWarehouseProduct);
   }
 
+  public getOne(id: string): Observable<any>{
+    return this.http.get<any>(this.warehouseProductUrl + `/${id}`);
+  }
+
+  public getWarehouseProductsByWarehouse(wareHouseId: string): Observable<any>{
+    return this.http.get<any>(this.warehouseProductUrl + `get-products/warehouse-id/${wareHouseId}`);
+  }
+
 }

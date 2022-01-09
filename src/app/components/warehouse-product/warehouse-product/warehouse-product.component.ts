@@ -8,15 +8,9 @@ import { FormWarehouseComponent } from '../../warehouse/form-warehouse/form-ware
 })
 export class WarehouseProductComponent implements OnInit {
 
-  showFormVisible = false;
-
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  showForm(){
-    return !this.showFormVisible;
   }
 
 }
