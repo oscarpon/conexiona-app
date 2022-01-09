@@ -15,10 +15,11 @@
     </div>
 </div>
 
-<div *ngIf="warehouseProducts?.length != 0" class="table table-striped">
+<div *ngIf="warehouseProducts?.length != 0" class="table table-striped" id="htmlData">
     <thead>
         <th scope="col">Nombre Producto</th>
         <th scope="col">Cantidad disponible</th>
+        <a (click)="openPDF()" class="btn">Exportar<fa-icon [icon]="faDownload"></fa-icon></a>
     </thead>
     <tbody>
         <tr *ngFor="let warehouseproduct of warehouseProducts">

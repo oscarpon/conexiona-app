@@ -5,6 +5,9 @@ import { AuthService } from 'src/app/services/auth.service';
 import { TokenService } from 'src/app/services/token.service';
 import { WarehouseProductService } from 'src/app/services/warehouse-product.service';
 import { WarehouseService } from 'src/app/services/warehouse.service';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-list-warehouse-product',
@@ -16,6 +19,7 @@ export class ListWarehouseProductComponent implements OnInit {
   warehouseProducts: WarehouseProduct[] = [];
   warehouses: Warehouse[] = [];
   warehouseId = '';
+  faDownload = faDownload;
 
 
   constructor(
@@ -29,7 +33,7 @@ export class ListWarehouseProductComponent implements OnInit {
     this.loadWarehouses();
   }
 
-  loadWarehouses(): void{
+  loadWarehouses(): void {
     this.warehouseService.all().subscribe(
       data => {
         this.warehouses = data;
@@ -40,15 +44,30 @@ export class ListWarehouseProductComponent implements OnInit {
     )
   }
 
-  loadWarehouseProducts(): void{
+  loadWarehouseProducts(): void {
     this.warehouseProductService.getWarehouseProductsByWarehouse(this.warehouseId).subscribe(
       data => {
         this.warehouseProducts = data;
-      }, 
+      },
       err => {
         console.log(err);
       }
     )
+  }
+
+  openPDF(): void {
+    let DATA = document.getElementById('htmlData');
+
+    html2canvas(DATA).then(canvas => {
+      let fileWidth = 208;
+      let fileHeight = canvas.height * fileWidth / canvas.width;
+
+      const FILEURI = canvas.toDataURL('image/png')
+      let PDF = new jsPDF('p', 'mm', 'a4');
+      let position = 0;
+      PDF.addImage(FILEURI, 'PNG', 50, position, fileWidth, fileHeight)
+      PDF.save('stockWareHouse.pdf');
+    })
   }
 
 
