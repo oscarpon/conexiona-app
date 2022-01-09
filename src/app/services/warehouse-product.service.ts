@@ -26,4 +26,8 @@ export class WarehouseProductService {
     return this.http.get<any>(this.warehouseProductUrl + `get-products/warehouse-id/${wareHouseId}`);
   }
 
+  public delete(id: string): Observable<any>{
+    return this.http.delete<any>(this.warehouseProductUrl + `delete/${id}`);
+  }
+
 }

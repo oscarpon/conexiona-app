@@ -19,12 +19,16 @@
     <thead>
         <th scope="col">Nombre Producto</th>
         <th scope="col">Cantidad disponible</th>
+        <th scope="col">Funciones</th>
         <th scope="col"><a (click)="openPDF()">Exportar<fa-icon [icon]="faDownload"></fa-icon></a></th>
     </thead>
     <tbody>
         <tr *ngFor="let warehouseproduct of warehouseProducts">
             <td>{{warehouseproduct.products.nameProduct}}</td>
             <td [ngClass]="{'table-danger': warehouseproduct.stock<3}">{{warehouseproduct.stock}}</td>
+            <td>
+                <a (click)='delete(warehouseproduct)' class="btn"><fa-icon [icon]="faTrash"></fa-icon></a>
+            </td>
             <td>&nbsp;</td>
         </tr>
     </tbody>

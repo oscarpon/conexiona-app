@@ -7,7 +7,9 @@ import { WarehouseProductService } from 'src/app/services/warehouse-product.serv
 import { WarehouseService } from 'src/app/services/warehouse.service';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
-import { faDownload } from '@fortawesome/free-solid-svg-icons';
+import { faDownload, faTrash } from '@fortawesome/free-solid-svg-icons';
+import Swal from 'sweetalert2';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-list-warehouse-product',
@@ -20,13 +22,15 @@ export class ListWarehouseProductComponent implements OnInit {
   warehouses: Warehouse[] = [];
   warehouseId = '';
   faDownload = faDownload;
+  faTrash = faTrash;
 
 
   constructor(
     private authService: AuthService,
     private warehouseProductService: WarehouseProductService,
     private tokenService: TokenService,
-    private warehouseService: WarehouseService
+    private warehouseService: WarehouseService,
+    private toast: ToastrService
   ) { }
 
   ngOnInit() {
@@ -48,6 +52,9 @@ export class ListWarehouseProductComponent implements OnInit {
     this.warehouseProductService.getWarehouseProductsByWarehouse(this.warehouseId).subscribe(
       data => {
         this.warehouseProducts = data;
+        if(this.warehouseProducts.length == 0){
+          this.toast.info("No se encuentran productos para este almacén");
+        }
       },
       err => {
         console.log(err);
@@ -67,6 +74,39 @@ export class ListWarehouseProductComponent implements OnInit {
       let position = 0;
       PDF.addImage(FILEURI, 'PNG', 50, position, fileWidth, fileHeight)
       PDF.save('stockWareHouse.pdf');
+    })
+  }
+
+  delete(warehouseProduct: WarehouseProduct): void{
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Vas a eliminar un producto del almacén' , 
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminar!'
+    }).then((result) => {
+      if(result.isConfirmed){
+        this.warehouseProductService.delete(warehouseProduct.id).subscribe(
+          response => {
+            this.warehouseProducts = this.warehouseProducts.filter(ware => ware !== warehouseProduct)
+            Swal.fire(
+              'Eliminado',
+              'El producto se ha eliminado',
+              'success'
+            )
+          }
+        )
+      }else if (
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        Swal.fire(
+          'Cancelado',
+          'No has completado la eliminación',
+          'error'
+        )
+      }
     })
   }
 
