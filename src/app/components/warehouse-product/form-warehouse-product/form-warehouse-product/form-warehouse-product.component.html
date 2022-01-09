@@ -15,7 +15,7 @@
   </select>
   <label for="stock">Stock Inicial:</label>
   <input type="number" class="form-control" id="stock" name="stock" [(ngModel)]="newWarehouseProduct.stock">
-  <button class="btn btn-success btn-block mt-2" [disabled]="!form.valid" (click)='create()'>
+  <button class="btn btn-success btn-block mt-2" [disabled]="!form.valid" (click)='create()' (click)='form.reset()'>
     <fa-icon class="mr-1"></fa-icon>Crear
   </button>
 </form>
