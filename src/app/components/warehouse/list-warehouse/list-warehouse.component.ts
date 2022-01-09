@@ -158,6 +158,9 @@ export class ListWarehouseComponent implements OnInit {
               'El almacén se ha eliminado',
               'success'
             )
+          },
+          err => {
+            this.toastr.error("No puedes eliminar el almacén porque tiene productos asociados");
           }
         )
       }else if (

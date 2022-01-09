@@ -15,16 +15,17 @@
     </div>
 </div>
 
-<div *ngIf="warehouseProducts?.length != 0" class="table table-striped" id="htmlData">
+<div *ngIf="warehouseProducts?.length != 0" class="table" id="htmlData">
     <thead>
         <th scope="col">Nombre Producto</th>
         <th scope="col">Cantidad disponible</th>
-        <a (click)="openPDF()" class="btn">Exportar<fa-icon [icon]="faDownload"></fa-icon></a>
+        <th scope="col"><a (click)="openPDF()">Exportar<fa-icon [icon]="faDownload"></fa-icon></a></th>
     </thead>
     <tbody>
         <tr *ngFor="let warehouseproduct of warehouseProducts">
             <td>{{warehouseproduct.products.nameProduct}}</td>
-            <td>{{warehouseproduct.stock}}</td>
+            <td [ngClass]="{'table-danger': warehouseproduct.stock<3}">{{warehouseproduct.stock}}</td>
+            <td>&nbsp;</td>
         </tr>
     </tbody>
 </div>
