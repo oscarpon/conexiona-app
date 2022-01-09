@@ -19,6 +19,7 @@ export class FormWarehouseProductComponent implements OnInit {
   public newWarehouseProduct: WarehouseProduct = new WarehouseProduct();
   wareHouses: Warehouse[] = [];
   products: Products[] = [];
+  errorMsj: string;
   stock: number;
   myAccountId = '';
   warehouse = '';
@@ -93,7 +94,7 @@ export class FormWarehouseProductComponent implements OnInit {
 
   public create(): void{
     console.log(this.warehouse);
-    this.wareHouseProductService.new(this.newWarehouseProduct, this.newWarehouseProduct.warehouse.id).subscribe(
+    this.wareHouseProductService.new(this.newWarehouseProduct, this.newWarehouseProduct.warehouse).subscribe(
       data =>{
         this.router.navigate(['/warehouse-product'])
         this.toastr.success('Producto añadido correctamente al almacén', 'OK',{
@@ -101,7 +102,8 @@ export class FormWarehouseProductComponent implements OnInit {
         });
       },
       err => {
-        this.toastr.error(err.message, "ERROR");
+        this.errorMsj = err.error.error as string;
+        this.toastr.error(this.errorMsj, 'ERROR');
       }
     )
   }

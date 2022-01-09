@@ -1,15 +1,15 @@
 <form novalidate #form="ngForm">
   <h3>Añadir nuevo producto a almacén: </h3>
   <label for="warehouse">Almacén *</label>
-  <select class="form-control" id="warehouse" name="warehouse" [(ngModel)]="warehouse" required>
+  <select class="form-control" id="warehouse" name="warehouse" [(ngModel)]="newWarehouseProduct.warehouse" required>
     <option [value]="warehouse.id" *ngFor="let warehouse of wareHouses">
       {{ warehouse.wareHouseName }} - {{ warehouse.building.buildingName }}
     </option>
   </select>
 
   <label for="product">Producto *</label>
-  <select class="form-control" id="product" name="product" [(ngModel)]="newWarehouseProduct.products" required>
-    <option [value]="product" *ngFor="let product of products">
+  <select class="form-control" id="product" name="product" [(ngModel)]="newWarehouseProduct.product" required>
+    <option [value]="product.id" *ngFor="let product of products">
       {{ product.nameProduct }}
     </option>
   </select>

@@ -4,6 +4,6 @@ import { Products } from "./products";
 export class WarehouseProduct{
     id?: string;
     warehouse: Warehouse;
-    products: Products;
+    product: Products;
     stock: number;
 }
