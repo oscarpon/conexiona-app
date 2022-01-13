@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { Warehouse } from 'src/app/models/warehouse';
 import { WarehouseProduct } from 'src/app/models/warehouseProduct';
 import { AuthService } from 'src/app/services/auth.service';
@@ -7,9 +7,10 @@ import { WarehouseProductService } from 'src/app/services/warehouse-product.serv
 import { WarehouseService } from 'src/app/services/warehouse.service';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
-import { faDownload, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faDownload, faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
 import Swal from 'sweetalert2';
 import { ToastrService } from 'ngx-toastr';
+import { NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-list-warehouse-product',
@@ -23,6 +24,8 @@ export class ListWarehouseProductComponent implements OnInit {
   warehouseId = '';
   faDownload = faDownload;
   faTrash = faTrash;
+  faEdit = faEdit;
+  @Input() isDisabled: boolean;
 
 
   constructor(
@@ -30,7 +33,8 @@ export class ListWarehouseProductComponent implements OnInit {
     private warehouseProductService: WarehouseProductService,
     private tokenService: TokenService,
     private warehouseService: WarehouseService,
-    private toast: ToastrService
+    private toast: ToastrService,
+    private ngbToast: NgbToastModule
   ) { }
 
   ngOnInit() {
@@ -43,7 +47,7 @@ export class ListWarehouseProductComponent implements OnInit {
         this.warehouses = data;
       },
       err => {
-        console.log(err);
+        console.error(err);
       }
     )
   }
@@ -109,7 +113,6 @@ export class ListWarehouseProductComponent implements OnInit {
       }
     })
   }
-
 
 
 }

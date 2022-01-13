@@ -50,7 +50,8 @@ const routes: Routes = [
   {path: 'warehouse/add', component: FormWarehouseComponent},
   {path: 'warehouse/:id', component: FormWarehouseComponent},
   {path: 'warehouse-product', component: WarehouseProductComponent},
-  {path: 'warehouse-product/add', component: FormWarehouseProductComponent}
+  {path: 'warehouse-product/add', component: FormWarehouseProductComponent},
+  {path: 'warehouse-product/:id', component: FormWarehouseProductComponent}
   
 
 ];

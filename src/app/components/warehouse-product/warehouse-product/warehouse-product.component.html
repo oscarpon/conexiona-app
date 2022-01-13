@@ -5,14 +5,15 @@
             <div class="alert alert-primary mt-3 col-sm" role="alert">
                 Bienvenido a la sección de gestión de stock, desde aquí puedes gestionar todo el stock de tus almacenes. 
             </div>
-            <button type="button" class="btn btn-primary btn-lg btn-block">Reponer Productos</button>
+            <button *ngIf='isDisabled' (click)='permitEdit()' type="button" class="btn btn-primary btn-lg btn-block">Iniciar reposición</button>
+            <button *ngIf='!isDisabled' (click)='permitEdit()' type="button" class="btn btn-success btn-lg btn-block">Finalizar reposición</button>
         </div>
         <div class="col-sm">
-            <app-form-warehouse-product></app-form-warehouse-product>
+            <app-form-warehouse-product ></app-form-warehouse-product>
         </div>
     </div>
     <div class="row mt-2">
-        <app-list-warehouse-product></app-list-warehouse-product>
+        <app-list-warehouse-product [isDisabled]="isDisabled"></app-list-warehouse-product>
     </div>
 
 </div>

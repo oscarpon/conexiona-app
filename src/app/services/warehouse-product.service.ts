@@ -30,4 +30,8 @@ export class WarehouseProductService {
     return this.http.delete<any>(this.warehouseProductUrl + `delete/${id}`);
   }
 
+  public update(warehouseProduct: WarehouseProduct): Observable<any>{
+    return this.http.put(this.warehouseProductUrl + `update-stock`, warehouseProduct);
+  }
+
 }

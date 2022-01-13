@@ -8,9 +8,15 @@ import { FormWarehouseComponent } from '../../warehouse/form-warehouse/form-ware
 })
 export class WarehouseProductComponent implements OnInit {
 
+  isDisabled = true;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  permitEdit(): void{
+    this.isDisabled = !this.isDisabled;
   }
 
 }
