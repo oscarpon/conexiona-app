@@ -25,7 +25,7 @@
     <tbody>
         <tr *ngFor="let warehouseproduct of warehouseProducts">
             <td>{{warehouseproduct.products.nameProduct}}</td>
-            <td [ngClass]="{'table-danger': warehouseproduct.stock<3}"><input type="text" [ngModel]="warehouseproduct.stock" [disabled]="isDisabled"></td>
+            <td [ngClass]="{'table-danger': warehouseproduct.stock<3}">{{warehouseproduct.stock}}</td>
             <td>
                 <a (click)='delete(warehouseproduct)' class="btn"><fa-icon [icon]="faTrash"></fa-icon></a>
             </td>

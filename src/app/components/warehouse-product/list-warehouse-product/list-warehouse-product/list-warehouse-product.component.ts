@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { Warehouse } from 'src/app/models/warehouse';
 import { WarehouseProduct } from 'src/app/models/warehouseProduct';
 import { AuthService } from 'src/app/services/auth.service';
@@ -11,7 +11,6 @@ import { faDownload, faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
 import Swal from 'sweetalert2';
 import { ToastrService } from 'ngx-toastr';
 import { NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
-import { EventEmitter } from 'stream';
 
 @Component({
   selector: 'app-list-warehouse-product',
@@ -26,6 +25,7 @@ export class ListWarehouseProductComponent implements OnInit {
   faDownload = faDownload;
   faTrash = faTrash;
   faEdit = faEdit;
+  @Output() wareHouseEmitter = new EventEmitter<any>();
 
   constructor(
     private authService: AuthService,
@@ -41,6 +41,7 @@ export class ListWarehouseProductComponent implements OnInit {
   }
 
   loadWarehouses(): void {
+    //Añadir para cuando el usuario no es admin
     this.warehouseService.all().subscribe(
       data => {
         this.warehouses = data;
@@ -52,6 +53,7 @@ export class ListWarehouseProductComponent implements OnInit {
   }
 
   loadWarehouseProducts(): void {
+    this.wareHouseEmitter.emit(this.warehouseId);
     this.warehouseProductService.getWarehouseProductsByWarehouse(this.warehouseId).subscribe(
       data => {
         this.warehouseProducts = data;

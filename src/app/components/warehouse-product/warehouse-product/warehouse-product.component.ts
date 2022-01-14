@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { ListWarehouseProductComponent } from '../list-warehouse-product/list-warehouse-product/list-warehouse-product.component';
 
 @Component({
@@ -6,9 +6,8 @@ import { ListWarehouseProductComponent } from '../list-warehouse-product/list-wa
   templateUrl: './warehouse-product.component.html',
   styleUrls: ['./warehouse-product.component.css']
 })
-export class WarehouseProductComponent implements AfterViewInit {
+export class WarehouseProductComponent implements OnInit {
 
-  @ViewChild(ListWarehouseProductComponent) listWareHouse;
 
   wareHouseId: string;
 
@@ -16,8 +15,12 @@ export class WarehouseProductComponent implements AfterViewInit {
 
   constructor() { }
 
-  ngAfterViewInit(): void {
-      this.wareHouseId = this.listWareHouse.warehouseId;
+  ngOnInit(): void {
+      
+  }
+
+  loadWareHouse(wareHouseId: string){
+    this.wareHouseId = wareHouseId;
   }
 
   
