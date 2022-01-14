@@ -1,4 +1,4 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input, Output} from '@angular/core';
 import { Warehouse } from 'src/app/models/warehouse';
 import { WarehouseProduct } from 'src/app/models/warehouseProduct';
 import { AuthService } from 'src/app/services/auth.service';
@@ -11,6 +11,7 @@ import { faDownload, faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
 import Swal from 'sweetalert2';
 import { ToastrService } from 'ngx-toastr';
 import { NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
+import { EventEmitter } from 'stream';
 
 @Component({
   selector: 'app-list-warehouse-product',
@@ -25,8 +26,6 @@ export class ListWarehouseProductComponent implements OnInit {
   faDownload = faDownload;
   faTrash = faTrash;
   faEdit = faEdit;
-  @Input() isDisabled: boolean;
-
 
   constructor(
     private authService: AuthService,

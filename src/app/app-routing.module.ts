@@ -15,6 +15,7 @@ import { ListProductComponent } from './components/products/list-product/list-pr
 import { ProductsComponent } from './components/products/products/products.component';
 import { ListUsersComponent } from './components/users/list-users/list-users.component';
 import { FormWarehouseProductComponent } from './components/warehouse-product/form-warehouse-product/form-warehouse-product/form-warehouse-product.component';
+import { RepositionWarehouseComponent } from './components/warehouse-product/reposition-warehouse/reposition-warehouse.component';
 import { WarehouseProductComponent } from './components/warehouse-product/warehouse-product/warehouse-product.component';
 import { FormWarehouseComponent } from './components/warehouse/form-warehouse/form-warehouse.component';
 import { ListWarehouseComponent } from './components/warehouse/list-warehouse/list-warehouse.component';
@@ -51,7 +52,10 @@ const routes: Routes = [
   {path: 'warehouse/:id', component: FormWarehouseComponent},
   {path: 'warehouse-product', component: WarehouseProductComponent},
   {path: 'warehouse-product/add', component: FormWarehouseProductComponent},
-  {path: 'warehouse-product/:id', component: FormWarehouseProductComponent}
+  {path: 'warehouse-product/:id', component: FormWarehouseProductComponent},
+  {path: 'warehouse-reposition/:id', component: RepositionWarehouseComponent},
+
+
   
 
 ];

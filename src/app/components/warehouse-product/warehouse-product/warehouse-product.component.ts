@@ -1,22 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import { FormWarehouseComponent } from '../../warehouse/form-warehouse/form-warehouse.component';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { ListWarehouseProductComponent } from '../list-warehouse-product/list-warehouse-product/list-warehouse-product.component';
 
 @Component({
   selector: 'app-warehouse-product',
   templateUrl: './warehouse-product.component.html',
   styleUrls: ['./warehouse-product.component.css']
 })
-export class WarehouseProductComponent implements OnInit {
+export class WarehouseProductComponent implements AfterViewInit {
 
-  isDisabled = true;
+  @ViewChild(ListWarehouseProductComponent) listWareHouse;
+
+  wareHouseId: string;
+
+  
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
+      this.wareHouseId = this.listWareHouse.warehouseId;
   }
 
-  permitEdit(): void{
-    this.isDisabled = !this.isDisabled;
-  }
+  
 
 }

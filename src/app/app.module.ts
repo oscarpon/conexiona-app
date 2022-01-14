@@ -40,6 +40,7 @@ import { UpdatePasswordComponent } from './components/auth/update-password/updat
 import { ListWarehouseProductComponent } from './components/warehouse-product/list-warehouse-product/list-warehouse-product/list-warehouse-product.component';
 import { FormWarehouseProductComponent } from './components/warehouse-product/form-warehouse-product/form-warehouse-product/form-warehouse-product.component';
 import { WarehouseProductComponent } from './components/warehouse-product/warehouse-product/warehouse-product.component';
+import { RepositionWarehouseComponent } from './components/warehouse-product/reposition-warehouse/reposition-warehouse.component';
 
 
 
@@ -79,7 +80,8 @@ import { WarehouseProductComponent } from './components/warehouse-product/wareho
     WarehousePipe,
     ListWarehouseProductComponent,
     FormWarehouseProductComponent,
-    WarehouseProductComponent
+    WarehouseProductComponent,
+    RepositionWarehouseComponent
   ],
   imports: [
     BrowserModule,
