@@ -11,8 +11,12 @@
             <app-form-warehouse-product ></app-form-warehouse-product>
         </div>
     </div>
-    <div class="row mt-2">
-        <app-list-warehouse-product (wareHouseEmitter)="loadWareHouse($event)"></app-list-warehouse-product>
+    <div class="row mt-3">
+        <div class="col-md-auto">
+            <app-list-warehouse-product 
+            (wareHouseEmitter)="loadWareHouse($event)"
+        ></app-list-warehouse-product>
+        </div>
     </div>
 
 </div>
