@@ -1,0 +1,21 @@
+<form novalidate #form="ngForm">
+  <h3>Añadir nuevo producto a almacén: </h3>
+  <label for="warehouse">Almacén *</label>
+  <select class="form-control" id="warehouse" name="warehouse" [(ngModel)]="newWarehouseProduct.warehouse" required>
+    <option [value]="warehouse.id" *ngFor="let warehouse of wareHouses">
+      {{ warehouse.wareHouseName }} - {{ warehouse.building.buildingName }}
+    </option>
+  </select>
+
+  <label for="product">Producto *</label>
+  <select class="form-control" id="product" name="product" [(ngModel)]="newWarehouseProduct.product" required>
+    <option [value]="product.id" *ngFor="let product of products">
+      {{ product.nameProduct }}
+    </option>
+  </select>
+  <label for="stock">Stock Inicial:</label>
+  <input type="number" class="form-control" id="stock" name="stock" [(ngModel)]="newWarehouseProduct.stock">
+  <button class="btn btn-success btn-block mt-2" [disabled]="!form.valid" (click)='create()' (click)='form.reset()'>
+    <fa-icon class="mr-1"></fa-icon>Crear
+  </button>
+</form>

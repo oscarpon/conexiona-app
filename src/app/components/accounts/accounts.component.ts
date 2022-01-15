@@ -3,6 +3,7 @@ import { FormControl } from '@angular/forms';
 import { Account } from 'src/app/models/account';
 import { TokenService } from 'src/app/services/token.service';
 import { textChangeRangeIsUnchanged } from 'typescript';
+import { ToastrService } from 'ngx-toastr';
 import { AccountService } from '../../services/account.service';
 import {map, startWith} from 'rxjs/operators';
 import { Observable } from 'rxjs';
@@ -32,7 +33,8 @@ export class AccountsComponent implements OnInit {
   constructor(
     private accountService: AccountService,
     private tokenService: TokenService, 
-    private http: HttpClient
+    private http: HttpClient,
+    private toastr: ToastrService
   ) { }
 
 
@@ -56,11 +58,10 @@ export class AccountsComponent implements OnInit {
         this.accounts = data;
       },
       err => {
-        console.log(err);
+        this.toastr.error(err.message, "ERROR", { timeOut: 3000});
       }
     );
   }
-
  
   search(text: string): Account[]{
     return this.accounts.filter(account => {

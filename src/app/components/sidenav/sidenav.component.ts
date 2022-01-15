@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { faBoxOpen, faBuilding, faHome, faHospital, faIdCardAlt, faPills, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { TokenService } from 'src/app/services/token.service';
 import { textChangeRangeIsUnchanged } from 'typescript';
+import { AuthFunctions } from 'src/app/functions/authFunctions';
 
 
 
@@ -15,7 +16,7 @@ import { textChangeRangeIsUnchanged } from 'typescript';
 })
 export class SidenavComponent implements OnInit {
 
-  isAuthenticated = false;
+  isAuthenticated = this.isLogged();
   isAdministrator = false;
   isStockist = false;
   isGestorvar = false;
@@ -45,7 +46,7 @@ export class SidenavComponent implements OnInit {
   }
 
   isLogged(): boolean{
-    return this.isAuthenticated = this.tokenService.isLogged();
+    return this.tokenService.isLogged();
   }
 
   isAdmin(): boolean{

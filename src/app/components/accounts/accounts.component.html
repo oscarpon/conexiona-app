@@ -1,5 +1,4 @@
 <div class="container">
-<div *ngIf="accounts?.length == 0" class="alert alert-info mt-2 alert-account">No hay cuentas creadas</div>
 <div class="form-group mt-2">
   <div class="form-group form-inline">
       Búsqueda de cuenta: <input class="form-control ml-2 mr-2" type="text" [(ngModel)]="filterAccount" name="filterAccount"/>
@@ -22,6 +21,9 @@
     </td>
   </tr>
   </tbody>
+  <div *ngIf="accounts?.length == 0" class="spinner-border m-5" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
 </table>
 </div>
 

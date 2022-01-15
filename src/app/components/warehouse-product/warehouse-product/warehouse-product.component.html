@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row">
+        <h2 class="mt-3">Panel de control: </h2>
+        <div class="col-sm">
+            <div class="alert alert-primary mt-3 col-sm" role="alert">
+                Bienvenido a la sección de gestión de stock, desde aquí puedes gestionar todo el stock de tus almacenes. 
+            </div>
+            <button *ngIf="wareHouseId" [routerLink]="['/warehouse-reposition', wareHouseId]" type="button" class="btn btn-primary btn-lg btn-block">Iniciar reposición</button>
+        </div>
+        <div class="col-sm">
+            <app-form-warehouse-product ></app-form-warehouse-product>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-auto">
+            <app-list-warehouse-product 
+            (wareHouseEmitter)="loadWareHouse($event)"
+        ></app-list-warehouse-product>
+        </div>
+    </div>
+
+</div>

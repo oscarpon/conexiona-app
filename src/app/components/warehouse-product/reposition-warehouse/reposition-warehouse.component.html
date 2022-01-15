@@ -1,0 +1,55 @@
+<div class="container mt-3">
+    <h2>Nueva reposición:</h2>
+    <div class="row">
+        <div class="col">
+            <div class="alert alert-warning" role="alert">
+                <h5>Reposición iniciada por: <strong>{{user}}</strong></h5>
+              </div>
+        </div>
+        <div class="col" style="text-align: right; color: red;">
+            <p>Inicio de la reposición: {{localDate}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <div class="form-inline">
+                <label for="warehouse">Selecciona un producto *</label>
+                <select class="form-control ml-2" id="product" name="product" [(ngModel)]="product">
+                    <option [value]="warehouseProduct.products.id" *ngFor="let warehouseProduct of warehouseProducts">
+                        {{warehouseProduct.products.nameProduct}}
+                    </option>
+                </select>
+                <label class="m-2" for="cantidad">Cantidad *</label>
+                <input type="number" id="quantity" name="quantity" class="form-control" [(ngModel)]="quantity">
+                <div class="d-flex">
+                    <button class="btn btn-success ml-2" (click)='addReplacementItem(quantity, product)'>Añadir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Nombre de producto</th>
+                  <th scope="col">Cantidad</th>
+                  <th scope="col">&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of replacementItems; index as i">
+                    <th scope="row">{{ i + 1 }}</th>
+                    <td>{{item.product}}</td>
+                    <td>{{item.quantity}}</td>
+                    <td>
+                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="replacementItems.length > 0" class="row">
+        <button class="btn btn-success ml-2" (click)='create()'>Finalizar reposición</button>
+    </div>
+</div>

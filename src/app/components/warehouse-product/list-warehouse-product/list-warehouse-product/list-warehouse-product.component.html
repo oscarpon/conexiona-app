@@ -1,0 +1,35 @@
+<div *ngIf="warehouses?.length == 0" class="alert alert-warning mt-2">No existen almacenes en esta cuenta
+</div>
+
+<div class="form-group">
+    <div class="form-inline">
+        <label for="warehouse">Almacén *</label>
+        <select class="form-control ml-2" id="warehouse" name="warehouse" [(ngModel)]="warehouseId">
+            <option [value]="warehouse.id" *ngFor="let warehouse of warehouses">
+                {{ warehouse.wareHouseName }} - {{ warehouse.building.buildingName }}
+            </option>
+        </select>
+        <div class="d-flex">
+            <button class="btn btn-success ml-2" (click)='loadWarehouseProducts()'>Buscar productos</button>
+          </div>
+    </div>
+</div>
+
+<div *ngIf="warehouseProducts?.length != 0" class="table" id="htmlData">
+    <thead>
+        <th scope="col">Nombre Producto</th>
+        <th scope="col">Cantidad disponible</th>
+        <th scope="col">Borrar</th>
+        <th scope="col"><a (click)="openPDF()">Exportar<fa-icon [icon]="faDownload"></fa-icon></a></th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let warehouseproduct of warehouseProducts">
+            <td>{{warehouseproduct.products.nameProduct}}</td>
+            <td [ngClass]="{'table-danger': warehouseproduct.stock<3}">{{warehouseproduct.stock}}</td>
+            <td>
+                <a (click)='delete(warehouseproduct)' class="btn"><fa-icon [icon]="faTrash"></fa-icon></a>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+    </tbody>
+</div>
