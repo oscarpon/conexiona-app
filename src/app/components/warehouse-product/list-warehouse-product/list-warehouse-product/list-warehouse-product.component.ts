@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input} from '@angular/core';
 import { Warehouse } from 'src/app/models/warehouse';
 import { WarehouseProduct } from 'src/app/models/warehouseProduct';
 import { AuthService } from 'src/app/services/auth.service';
@@ -26,6 +26,8 @@ export class ListWarehouseProductComponent implements OnInit {
   faTrash = faTrash;
   faEdit = faEdit;
   @Output() wareHouseEmitter = new EventEmitter<any>();
+  @Input() isAdministrator: boolean;
+  @Input() myAccountId: string;
 
   constructor(
     private authService: AuthService,
@@ -41,15 +43,26 @@ export class ListWarehouseProductComponent implements OnInit {
   }
 
   loadWarehouses(): void {
-    //Añadir para cuando el usuario no es admin
-    this.warehouseService.all().subscribe(
-      data => {
-        this.warehouses = data;
-      },
-      err => {
-        console.error(err);
-      }
-    )
+    if(this.isAdministrator){
+      this.warehouseService.all().subscribe(
+        data => {
+          this.warehouses = data;
+        },
+        err => {
+          console.error(err);
+        }
+      )
+    }else{
+      this.warehouseService.getbyAccount(this.myAccountId).subscribe(
+        data => {
+          this.warehouses = data;
+        },
+        err => {
+          console.error(err);
+        }
+      )
+    }
+    
   }
 
   loadWarehouseProducts(): void {

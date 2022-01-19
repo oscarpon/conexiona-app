@@ -53,7 +53,7 @@ const routes: Routes = [
   {path: 'warehouse-product', component: WarehouseProductComponent},
   {path: 'warehouse-product/add', component: FormWarehouseProductComponent},
   {path: 'warehouse-product/:id', component: FormWarehouseProductComponent},
-  {path: 'warehouse-reposition/:id', component: RepositionWarehouseComponent},
+  {path: 'warehouse-reposition/:id', component: RepositionWarehouseComponent, canActivate: [GestorGuardService], canActivateChild: [RepoGuardService]},
 
 
   

@@ -5,6 +5,7 @@
             <div class="alert alert-primary mt-3 col-sm" role="alert">
                 Bienvenido a la sección de gestión de stock, desde aquí puedes gestionar todo el stock de tus almacenes. 
             </div>
+            <a (click)='exportData(myAccountId)' class="btn">Exportar</a>
             <button *ngIf="wareHouseId" [routerLink]="['/warehouse-reposition', wareHouseId]" type="button" class="btn btn-primary btn-lg btn-block">Iniciar reposición</button>
         </div>
         <div class="col-sm">
@@ -15,6 +16,8 @@
         <div class="col-md-auto">
             <app-list-warehouse-product 
             (wareHouseEmitter)="loadWareHouse($event)"
+            [isAdministrator]="isAdministrator"
+            [myAccountId]="myAccountId"
         ></app-list-warehouse-product>
         </div>
     </div>

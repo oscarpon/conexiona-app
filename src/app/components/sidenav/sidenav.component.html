@@ -53,7 +53,7 @@
             <a [routerLink]="['/products/all']">Ver</a>
           </li>
           <li>
-            <a [routerLink]="['warehouse-product']">Control de stock</a>
+            <a [routerLink]="['warehouse-product']" *ngIf="!isAdmin()">Control de stock</a>
           </li>
         </ul>
       </li>
