@@ -26,8 +26,16 @@ export class RepositionService {
     });
   }
 
+  public historyReplacement(id: string): Observable<any>{
+    return this.http.get(this.replacementUrl + `export-data/${id}`);
+  }
+
   public exportData(id: string): Observable<Blob>{
     return this.http.get(this.replacementUrl + `export-data/pdf/${id}`, {responseType: 'blob'});
+  }
+
+  public exportDataExcel(id: string): Observable<Blob>{
+    return this.http.get(this.replacementUrl + `export-data/excel/${id}`, {responseType: 'blob'});
   }
 
 }

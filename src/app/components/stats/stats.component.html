@@ -1,0 +1,36 @@
+<div class="container">
+    <h2 class="mt-3">Estadísticas e historial:</h2>
+    <div class="row mt-3">
+        <div class="col">
+            <button class="btn btn-danger mr-1" (click)="exportData(myAccountId)">Pdf</button>
+            <button class="btn btn-primary" (click)="exportDataExcel(myAccountId)">Excel</button>
+        </div>
+    </div>
+    <div class="row table-responsive mt-3">
+        <table class="table table-striped ">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th>Fecha</th>
+                    <th>Usuario</th>
+                    <th>Almacen</th>
+                    <th>Edificio</th>
+                    <th>Hospital</th>
+                    <th>Cuenta</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let i = index ;let hist of replacementsData">
+                    <td>{{i+1}}</td>
+                    <td>{{hist.date}}</td>
+                    <td>{{hist.userName}}</td>
+                    <td>{{hist.wareHouseName}}</td>
+                    <td>{{hist.buildingName}}</td>
+                    <td>{{hist.hospitalName}}</td>
+                    <td>{{hist.accountName}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row"></div>
+</div>

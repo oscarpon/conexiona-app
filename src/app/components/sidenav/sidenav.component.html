@@ -90,14 +90,14 @@
           </li>
         </ul>
       </li>
-      <li *ngIf="isGestor()">
+      <li *ngIf="isGestor() && !isAdmin()">
         <a href="#statsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><fa-icon [icon]="faChartBar" class="mr-2"></fa-icon>Estadísticas</a>
         <ul class="collapse list-unstyled" id="statsSubmenu">
           <li>
-            <a [routerLink]="['/buildings/add']">Añadir</a>
+            <a [routerLink]="['/']">Añadir</a>
           </li>
           <li>
-            <a [routerLink]="['/buildings']">Ver</a>
+            <a [routerLink]="['/stats']">Ver</a>
           </li>
         </ul>
       </li>
