@@ -16,6 +16,7 @@ export class WarehouseProductComponent implements OnInit {
   wareHouseId: string;
   isAdministrator: boolean;
   myAccountId: string;
+  isGestor: boolean;
 
   
 
@@ -27,6 +28,7 @@ export class WarehouseProductComponent implements OnInit {
   ngOnInit(){
       this.isAdmin();
       this.getAccount();
+      this.isGestorFunc();
   }
 
   loadWareHouse(wareHouseId: string){
@@ -35,6 +37,10 @@ export class WarehouseProductComponent implements OnInit {
 
   isAdmin(): boolean{
     return this.isAdministrator = this.tokenService.isAdmin();
+  }
+
+  isGestorFunc(): boolean{
+    return this.isGestor = this.tokenService.isGestor();
   }
 
   getAccount(): string{
@@ -46,7 +52,6 @@ export class WarehouseProductComponent implements OnInit {
       data => {
         var newBlob = new Blob([data], {type: "application/pdf"});
         var fileUrl = URL.createObjectURL(newBlob);
-        window.open(fileUrl);
         var a = document.createElement('a');
         a.href = fileUrl;
         a.target = '_blank';

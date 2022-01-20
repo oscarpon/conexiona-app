@@ -90,6 +90,17 @@
           </li>
         </ul>
       </li>
+      <li *ngIf="isGestor()">
+        <a href="#statsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><fa-icon [icon]="faChartBar" class="mr-2"></fa-icon>Estadísticas</a>
+        <ul class="collapse list-unstyled" id="statsSubmenu">
+          <li>
+            <a [routerLink]="['/buildings/add']">Añadir</a>
+          </li>
+          <li>
+            <a [routerLink]="['/buildings']">Ver</a>
+          </li>
+        </ul>
+      </li>
       
     </ul>
   </nav>
