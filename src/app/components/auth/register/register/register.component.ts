@@ -28,6 +28,7 @@ export class RegisterComponent implements OnInit {
   rol: string;
   repeatPassword = '';
   id = 2323;
+  myAccountId: string;
   
   
 
@@ -46,6 +47,7 @@ export class RegisterComponent implements OnInit {
     if(this.isAdmin()){
       this.loadAccounts();
     }
+    this.getAccount();
   }
 
   public create(): void{
@@ -70,13 +72,13 @@ export class RegisterComponent implements OnInit {
       }
     }else{
       if(this.newUser.password != this.repeatPassword){
-        this.router.navigate(['users/add/:id'])
+        this.router.navigate(['users/add', this.myAccountId])
         this.toastr.error('Las contraseñas deben de ser iguales', 'Error')
       }else{
         this.newUser.roles.push(this.rol)
         this.authService.new(this.newUser, this.route.snapshot.paramMap.get('id')).subscribe(
         data => {
-          this.router.navigate(['users/:id'])
+          this.router.navigate(['users', this.myAccountId])
           this.toastr.success('Usuario creado', 'OK', {
             timeOut: 3000, positionClass: 'toast-top-center'
           });
@@ -129,6 +131,10 @@ export class RegisterComponent implements OnInit {
 
   isAdmin(): boolean{
     return this.tokenService.isAdmin();
+  }
+
+  getAccount(): string{
+    return this.myAccountId = this.tokenService.getAccount();
   }
 
 }

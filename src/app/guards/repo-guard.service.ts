@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { TokenService } from '../services/token.service';
 
 @Injectable({
@@ -11,16 +12,14 @@ export class RepoGuardService implements CanActivate{
 
   constructor(
     private tokenService: TokenService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):boolean{
-    const expectedRol = route.data.expectedRol;
     const roles = this.tokenService.isStockist();
-    if(roles){
-      this.realRol = 'reponedor';
-    }
-    if(!this.tokenService.getToken() || expectedRol.indexOf(this.realRol) === -1){
+    if(!this.tokenService.getToken() || !roles){
+      this.toastr.error("No tienes permisos para inciar la reposición");
       this.router.navigate(['/index']);
       return false;
     }

@@ -56,6 +56,12 @@ export class AuthService {
     return this.http.post<JwtDto>(this.authUrl + 'refreshtoken', dto);
   }
 
+  public forgotPassword(userEmail: string): Observable<any>{
+    let body = new HttpParams();
+    body = body.set('userEmail', userEmail);
+    return this.http.post<any>(this.authUrl + 'forgot-password', body);
+  }
+
 
   
 }

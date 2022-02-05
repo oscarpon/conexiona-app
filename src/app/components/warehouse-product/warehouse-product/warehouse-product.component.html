@@ -15,6 +15,8 @@
         <div class="col-md-auto">
             <app-list-warehouse-product 
             (wareHouseEmitter)="loadWareHouse($event)"
+            [isAdministrator]="isAdministrator"
+            [myAccountId]="myAccountId"
         ></app-list-warehouse-product>
         </div>
     </div>

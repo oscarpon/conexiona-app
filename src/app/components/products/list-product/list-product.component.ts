@@ -110,6 +110,9 @@ export class ListProductComponent implements OnInit {
               'El producto se ha eliminado',
               'success'
             )
+          },
+          err => {
+            this.toastr.error("Hay existencias de este producto en los almacenes.");
           }
         )
       }else if (

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AccountsComponent } from './components/accounts/accounts.component';
 import { AccountDetailComponent } from './components/accounts/detail/account-detail/account-detail.component';
 import { FormsComponent } from './components/accounts/forms/forms.component';
+import { ForgotPasswordComponent } from './components/auth/forgot-password/forgot-password.component';
 import { LoginComponent } from './components/auth/login/login/login.component';
 import { RegisterComponent } from './components/auth/register/register/register.component';
 import { UpdatePasswordComponent } from './components/auth/update-password/update-password.component';
@@ -13,6 +14,7 @@ import { ListHospitalsComponent } from './components/hospitals/list-hospitals/li
 import { IndexComponent } from './components/index/index.component';
 import { ListProductComponent } from './components/products/list-product/list-product.component';
 import { ProductsComponent } from './components/products/products/products.component';
+import { StatsComponent } from './components/stats/stats.component';
 import { ListUsersComponent } from './components/users/list-users/list-users.component';
 import { FormWarehouseProductComponent } from './components/warehouse-product/form-warehouse-product/form-warehouse-product/form-warehouse-product.component';
 import { RepositionWarehouseComponent } from './components/warehouse-product/reposition-warehouse/reposition-warehouse.component';
@@ -53,7 +55,9 @@ const routes: Routes = [
   {path: 'warehouse-product', component: WarehouseProductComponent},
   {path: 'warehouse-product/add', component: FormWarehouseProductComponent},
   {path: 'warehouse-product/:id', component: FormWarehouseProductComponent},
-  {path: 'warehouse-reposition/:id', component: RepositionWarehouseComponent},
+  {path: 'warehouse-reposition/:id', component: RepositionWarehouseComponent, canActivate: [GestorGuardService], canActivateChild: [RepoGuardService]},
+  {path: 'stats', component: StatsComponent},
+  {path: 'forgot-password', component: ForgotPasswordComponent},
 
 
   

@@ -41,6 +41,8 @@ import { ListWarehouseProductComponent } from './components/warehouse-product/li
 import { FormWarehouseProductComponent } from './components/warehouse-product/form-warehouse-product/form-warehouse-product/form-warehouse-product.component';
 import { WarehouseProductComponent } from './components/warehouse-product/warehouse-product/warehouse-product.component';
 import { RepositionWarehouseComponent } from './components/warehouse-product/reposition-warehouse/reposition-warehouse.component';
+import { StatsComponent } from './components/stats/stats.component';
+import { ForgotPasswordComponent } from './components/auth/forgot-password/forgot-password.component';
 
 
 
@@ -81,7 +83,9 @@ import { RepositionWarehouseComponent } from './components/warehouse-product/rep
     ListWarehouseProductComponent,
     FormWarehouseProductComponent,
     WarehouseProductComponent,
-    RepositionWarehouseComponent
+    RepositionWarehouseComponent,
+    StatsComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,

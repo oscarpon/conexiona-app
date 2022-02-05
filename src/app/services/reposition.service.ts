@@ -11,7 +11,9 @@ export class RepositionService {
 
   replacementUrl = environment.replacementUrl;
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient
+    ) { }
 
   public new(newReplacement: Replacement): Observable<any>{
     let params = new HttpParams();
@@ -22,6 +24,18 @@ export class RepositionService {
     return this.http.post<any>(this.replacementUrl + `add`, newReplacement, {
       params: params
     });
+  }
+
+  public historyReplacement(id: string): Observable<any>{
+    return this.http.get(this.replacementUrl + `export-data/${id}`);
+  }
+
+  public exportData(id: string): Observable<Blob>{
+    return this.http.get(this.replacementUrl + `export-data/pdf/${id}`, {responseType: 'blob'});
+  }
+
+  public exportDataExcel(id: string): Observable<Blob>{
+    return this.http.get(this.replacementUrl + `export-data/excel/${id}`, {responseType: 'blob'});
   }
 
 }

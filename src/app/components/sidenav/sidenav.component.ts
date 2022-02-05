@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { faBoxOpen, faBuilding, faHome, faHospital, faIdCardAlt, faPills, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faBoxOpen, faBuilding, faHome, faHospital, faIdCardAlt, faPills, faUsers, faChartBar } from '@fortawesome/free-solid-svg-icons';
 import { TokenService } from 'src/app/services/token.service';
 import { textChangeRangeIsUnchanged } from 'typescript';
 import { AuthFunctions } from 'src/app/functions/authFunctions';
@@ -30,6 +30,7 @@ export class SidenavComponent implements OnInit {
   show = true;
   myAccountId: string;
   userName = '';
+  faChartBar = faChartBar;
 
   constructor(
     private tokenService: TokenService,

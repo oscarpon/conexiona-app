@@ -16,7 +16,6 @@ export class GestorGuardService implements CanActivate{
   ) { }
   
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    const expectedRol = route.data.expectedRol;
     const roles = this.tokenService.isGestor();
     if(!this.tokenService.getToken() || !roles){
       this.router.navigate(['/index']);

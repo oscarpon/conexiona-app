@@ -21,6 +21,13 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
+            "allowedCommonJsDependencies": [
+              "core-js",
+              "jspdf",
+              "raf",
+              "canvg",
+              "@babel/runtime-corejs3"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"

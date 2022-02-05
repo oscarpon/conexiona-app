@@ -5,7 +5,7 @@
   <div class="container">
     <div class="abs-center">
       <div class="card row" style="width: 19rem;">
-        <h5 class="card-title text-center mt-2"><img src="assets/images/conexiona.jpg" alt="..." height="110px"></h5>
+        <h5 class="card-title text-center mt-2"><img src="assets/images/logo.png" alt="..." height="110px"></h5>
           <div class="card-body">
             <form #formLogin="ngForm" (ngSubmit)="onLogin()" novalidate>
               <div class="form-group">
@@ -28,6 +28,7 @@
               <div class="form-group pt-2">
                 <button class="btn btn-primary btn-block" [disabled]="!formLogin.valid">Iniciar sesión</button>
               </div>
+              <a [routerLink]="['/forgot-password']">He olvidado mi contraseña</a>
             </form>
           </div>
     </div>
