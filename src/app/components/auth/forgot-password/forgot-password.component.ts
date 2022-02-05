@@ -27,7 +27,7 @@ export class ForgotPasswordComponent implements OnInit {
   restorePassword(): void{
     this.authService.forgotPassword(this.userEmail).subscribe(
       success => {
-        this.router.navigate(['/index']);
+        this.router.navigate(['']);
         this.toastr.success('Hemos enviado un email con tu nueva contraseña', 'OK',{
           timeOut: 3000, positionClass: 'toast-top-center'
         });
