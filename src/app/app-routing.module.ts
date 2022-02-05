@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AccountsComponent } from './components/accounts/accounts.component';
 import { AccountDetailComponent } from './components/accounts/detail/account-detail/account-detail.component';
 import { FormsComponent } from './components/accounts/forms/forms.component';
+import { ForgotPasswordComponent } from './components/auth/forgot-password/forgot-password.component';
 import { LoginComponent } from './components/auth/login/login/login.component';
 import { RegisterComponent } from './components/auth/register/register/register.component';
 import { UpdatePasswordComponent } from './components/auth/update-password/update-password.component';
@@ -56,6 +57,7 @@ const routes: Routes = [
   {path: 'warehouse-product/:id', component: FormWarehouseProductComponent},
   {path: 'warehouse-reposition/:id', component: RepositionWarehouseComponent, canActivate: [GestorGuardService], canActivateChild: [RepoGuardService]},
   {path: 'stats', component: StatsComponent},
+  {path: 'forgot-password', component: ForgotPasswordComponent},
 
 
   
