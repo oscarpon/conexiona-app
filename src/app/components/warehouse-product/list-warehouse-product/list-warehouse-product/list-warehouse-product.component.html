@@ -20,7 +20,7 @@
         <th scope="col">Nombre Producto</th>
         <th scope="col">Cantidad disponible</th>
         <th scope="col">Borrar</th>
-        <th scope="col"><a (click)="openPDF()">Exportar<fa-icon [icon]="faDownload"></fa-icon></a></th>
+        <th scope="col"><a (click)="exportData()">Exportar<fa-icon [icon]="faDownload"></fa-icon></a></th>
     </thead>
     <tbody>
         <tr *ngFor="let warehouseproduct of warehouseProducts">
