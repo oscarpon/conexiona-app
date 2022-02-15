@@ -72,6 +72,7 @@ export class RepositionWarehouseComponent implements OnInit {
     this.newReplacement.replacementItems = this.replacementItems;
     this.repositionService.new(this.newReplacement).subscribe(
       data => {
+        this.replacementItems = [];
         this.successMsj = data.message;
         this.toastr.success(this.successMsj, 'OK',{
           timeOut: 3000, positionClass: 'toast-top-center'

@@ -34,4 +34,8 @@ export class WarehouseProductService {
     return this.http.put(this.warehouseProductUrl + `update-stock`, warehouseProduct);
   }
 
+  public exportData(id: string): Observable<Blob>{
+    return this.http.get(this.warehouseProductUrl + `export-data/pdf/warehouse-stock/${id}`, {responseType: 'blob'});
+  }
+
 }
