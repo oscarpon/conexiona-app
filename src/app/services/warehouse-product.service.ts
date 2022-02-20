@@ -38,4 +38,8 @@ export class WarehouseProductService {
     return this.http.get(this.warehouseProductUrl + `export-data/pdf/warehouse-stock/${id}`, {responseType: 'blob'});
   }
 
+  public findProductsStock0(accountId: string): Observable<any>{
+    return this.http.get<any>(this.warehouseProductUrl + `empty-stock/${accountId}`);
+  }
+
 }

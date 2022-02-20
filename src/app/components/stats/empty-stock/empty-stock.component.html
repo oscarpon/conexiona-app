@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-6">
+            <div *ngIf="stockCero?.length == 0" class="alert alert-warning mt-2">No existen productos sin stock en la cuenta
+            </div>
+            
+            <div *ngIf="stockCero?.length != 0" class="table" id="htmlData">
+                <thead>
+                    <th scope="col">Almacén</th>
+                    <th scope="col">Nombre Producto</th>
+                    <th scope="col">Stock</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of stockCero">
+                        <td>{{product.wareHouse}}</td>
+                        <td>{{product.product}}</td>
+                        <td>{{product.stock}}</td>
+                    </tr>
+                </tbody>
+            </div>
+        </div>
+    </div>
+</div>
+
