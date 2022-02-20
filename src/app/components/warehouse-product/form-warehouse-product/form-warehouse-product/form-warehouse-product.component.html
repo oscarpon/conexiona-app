@@ -15,6 +15,12 @@
   </select>
   <label for="stock">Stock Inicial:</label>
   <input type="number" class="form-control" id="stock" name="stock" [(ngModel)]="newWarehouseProduct.stock">
+  <label for="deviceName">Dispositivo asociado:</label>
+  <input type="text" class="form-control" id="deviceName" name="deviceName" [(ngModel)]="newWarehouseProduct.deviceName">
+
+  <label for="idBasket">Cesta:</label>
+  <input type="text" class="form-control" id="idBasket" name="idBasket" [(ngModel)]="newWarehouseProduct.idBasket">
+
   <button class="btn btn-success btn-block mt-2" [disabled]="!form.valid" (click)='create()' (click)='form.reset()'>
     <fa-icon class="mr-1"></fa-icon>Crear
   </button>

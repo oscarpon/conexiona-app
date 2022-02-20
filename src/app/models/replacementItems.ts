@@ -1,5 +1,3 @@
-import { Products } from "./products";
-
 export class ReplacementItems{
 
     id?: string;
