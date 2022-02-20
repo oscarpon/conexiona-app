@@ -56,7 +56,9 @@
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item"><a href="#" class="stretched-link">Consultar</a></li>
-            <li class="list-group-item"><a href="#" class="stretched-link"></a>Medicamentos disponibles</li>
+            <li class="list-group-item"><a [routerLink]="['/empty-stock']" class="stretched-link"></a>Medicamentos agotados
+              <span class="badge badge-primary badge-pill">{{productsStockCero}}</span>
+            </li>
             <li class="list-group-item"><a href="#" class="stretched-link"></a>Informes</li>
             <li class="list-group-item"><a href="#" class="stretched-link"></a>Historial</li>
           </ul>
