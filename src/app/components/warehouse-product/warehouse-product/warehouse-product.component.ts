@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
+import { WarehouseProduct } from 'src/app/models/warehouseProduct';
 import { RepositionService } from 'src/app/services/reposition.service';
 import { TokenService } from 'src/app/services/token.service';
 import { textChangeRangeIsUnchanged } from 'typescript';
@@ -17,6 +18,7 @@ export class WarehouseProductComponent implements OnInit {
   isAdministrator: boolean;
   myAccountId: string;
   isGestor: boolean;
+  warehouseProductsList: WarehouseProduct[] = [];
 
   
 

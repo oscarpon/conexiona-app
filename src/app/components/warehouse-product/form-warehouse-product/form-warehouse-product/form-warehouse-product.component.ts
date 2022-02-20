@@ -8,6 +8,7 @@ import { TokenService } from 'src/app/services/token.service';
 import { WarehouseService } from 'src/app/services/warehouse.service';
 import { ToastrService } from 'ngx-toastr';
 import { WarehouseProductService } from 'src/app/services/warehouse-product.service';
+import { Device } from 'src/app/models/device';
 
 @Component({
   selector: 'app-form-warehouse-product',
@@ -24,6 +25,9 @@ export class FormWarehouseProductComponent implements OnInit {
   myAccountId = '';
   warehouse = '';
   product = '';
+  deviceName = '';
+  idBasket = '';
+
 
   constructor(
     private router: Router,
