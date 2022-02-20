@@ -14,12 +14,12 @@
     </option>
   </select>
   <label for="stock">Stock Inicial:</label>
-  <input type="number" class="form-control" id="stock" name="stock" [(ngModel)]="newWarehouseProduct.stock">
+  <input type="number" class="form-control" id="stock" name="stock" [(ngModel)]="newWarehouseProduct.stock" required>
   <label for="deviceName">Dispositivo asociado:</label>
-  <input type="text" class="form-control" id="deviceName" name="deviceName" [(ngModel)]="newWarehouseProduct.deviceName">
+  <input type="text" class="form-control" id="deviceName" name="deviceName" [(ngModel)]="newWarehouseProduct.deviceName" required>
 
   <label for="idBasket">Cesta:</label>
-  <input type="text" class="form-control" id="idBasket" name="idBasket" [(ngModel)]="newWarehouseProduct.idBasket">
+  <input type="text" class="form-control" id="idBasket" name="idBasket" [(ngModel)]="newWarehouseProduct.idBasket" required>
 
   <button class="btn btn-success btn-block mt-2" [disabled]="!form.valid" (click)='create()' (click)='form.reset()'>
     <fa-icon class="mr-1"></fa-icon>Crear
