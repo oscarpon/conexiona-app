@@ -5,8 +5,6 @@ import { AuthService } from 'src/app/services/auth.service';
 import { TokenService } from 'src/app/services/token.service';
 import { WarehouseProductService } from 'src/app/services/warehouse-product.service';
 import { WarehouseService } from 'src/app/services/warehouse.service';
-import jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
 import { faDownload, faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
 import Swal from 'sweetalert2';
 import { ToastrService } from 'ngx-toastr';
@@ -71,7 +69,7 @@ export class ListWarehouseProductComponent implements OnInit {
       data => {
         this.warehouseProducts = data;
         if(this.warehouseProducts.length == 0){
-          this.toast.info("No se encuentran productos para este almacén");
+          this.toast.info("No se encuentran productos para este almacén. Debes añadirlos");
         }
       },
       err => {

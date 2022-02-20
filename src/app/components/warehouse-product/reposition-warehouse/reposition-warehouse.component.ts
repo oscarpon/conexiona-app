@@ -5,7 +5,6 @@ import { WarehouseProduct } from 'src/app/models/warehouseProduct';
 import { TokenService } from 'src/app/services/token.service';
 import { WarehouseProductService } from 'src/app/services/warehouse-product.service';
 import { formatDate } from '@angular/common';
-import { Products } from 'src/app/models/products';
 import { RepositionService } from 'src/app/services/reposition.service';
 import { Replacement } from 'src/app/models/replacement';
 import { ToastrService } from 'ngx-toastr';
@@ -48,6 +47,9 @@ export class RepositionWarehouseComponent implements OnInit {
         this.warehouseProductService.getWarehouseProductsByWarehouse(this.warehouse).subscribe(
           data => {
             this.warehouseProducts = data;
+            if(this.warehouseProducts.length == 0){
+              this.toastr.warning("No puedes realizar la reposición. No hay productos en el almacén.");
+            }
           }
         )
       }
