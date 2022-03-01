@@ -14,6 +14,7 @@ export class IndexComponent implements OnInit {
   isGestorVar = false;
   isTablet = false;
   isStockist = false;
+
   productsStockCero = 0;
 
   constructor(
