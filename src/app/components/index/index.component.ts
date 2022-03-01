@@ -1,3 +1,4 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { TokenService } from 'src/app/services/token.service';
 import { WarehouseProductService } from 'src/app/services/warehouse-product.service';
@@ -12,6 +13,7 @@ export class IndexComponent implements OnInit {
   isAdministrator = false;
   isGestorVar = false;
   isTablet = false;
+  isStockist = false;
   productsStockCero = 0;
 
   constructor(
@@ -23,7 +25,8 @@ export class IndexComponent implements OnInit {
     this.isAdmin();
     this.isGestor();
     this.isTabletFunc();
-    if(this.isGestor){
+    this.isStockistFunc();
+    if(this.isGestor && !this.isAdmin()){
       this.findProductsStockCero(this.getAccount());
     }
   }
@@ -38,6 +41,10 @@ export class IndexComponent implements OnInit {
 
   isTabletFunc(): boolean{
     return this.isTablet = this.tokenService.isTablet();
+  }
+
+  isStockistFunc(): boolean{
+    return this.isStockist = this.tokenService.isStockist();
   }
 
   public getAccount(): string{
