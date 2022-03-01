@@ -31,6 +31,14 @@ export class TokenService {
     return false;
   }
 
+  public getRoles(): any{
+    const token = this.getToken();
+    const payload = token.split('.')[1];
+    const decoded = window.atob(payload);
+    const values = JSON.parse(decoded);
+    return values.roles;
+  }
+
   public getUserName():string{
     if(!this.isLogged()){
       return null;
