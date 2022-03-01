@@ -22,30 +22,27 @@ import { RepositionWarehouseComponent } from './components/warehouse-product/rep
 import { WarehouseProductComponent } from './components/warehouse-product/warehouse-product/warehouse-product.component';
 import { FormWarehouseComponent } from './components/warehouse/form-warehouse/form-warehouse.component';
 import { ListWarehouseComponent } from './components/warehouse/list-warehouse/list-warehouse.component';
-import { AdminGuardService } from './guards/admin-guard.service';
-import { GestorGuardService } from './guards/gestor-guard.service';
-import { RepoGuardService } from './guards/repo-guard.service';
-import { TabletGuardService } from './guards/tablet-guard.service';
+import { RoleGuardService } from './guards/role-guard.service';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
-  {path: 'index', component: IndexComponent, canActivate: [GestorGuardService], canActivateChild: [AdminGuardService]},
+  {path: 'index', component: IndexComponent},
   {path: 'index/:id', component: IndexComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'accounts', component: AccountsComponent, canActivate: [AdminGuardService]},
-  {path: 'accounts/add', component: FormsComponent, canActivate: [AdminGuardService]},
-  {path: 'accounts/add/:id', component: FormsComponent, canActivate: [AdminGuardService]},
-  {path: 'accounts/detail/:id', component: AccountDetailComponent},
-  {path: 'users/add', component: RegisterComponent, canActivate: [AdminGuardService]},
-  {path: 'users', component: ListUsersComponent, canActivate: [AdminGuardService]  },
-  {path: 'users/:id', component: ListUsersComponent, canActivate: [GestorGuardService], canActivateChild: [AdminGuardService]},
-  {path: 'users/add/:id', component: RegisterComponent, canActivate: [GestorGuardService], canActivateChild: [AdminGuardService]},
-  {path: 'products', component: ProductsComponent, canActivate: [GestorGuardService], canActivateChild: [AdminGuardService]  },
-  {path: 'products/all', component: ListProductComponent, canActivate: [GestorGuardService], canActivateChild: [AdminGuardService]  },
-  {path: 'products/:id', component: ProductsComponent, canActivate: [AdminGuardService]  },
-  {path: 'hospitals', component: ListHospitalsComponent, canActivate: [GestorGuardService], canActivateChild: [AdminGuardService]},
-  {path: 'hospitals/add', component: FormHospitalComponent, canActivate: [GestorGuardService], canActivateChild: [AdminGuardService]},
-  {path: 'hospitals/:id', component: FormHospitalComponent, canActivate: [GestorGuardService], canActivateChild: [AdminGuardService]},
+  {path: 'accounts', component: AccountsComponent, canActivate: [RoleGuardService], data:{expectedRole:'ROLE_ADMIN'}},
+  {path: 'accounts/add', component: FormsComponent, canActivate: [RoleGuardService], data:{expectedRole:'ROLE_ADMIN'}},
+  {path: 'accounts/add/:id', component: FormsComponent, canActivate: [RoleGuardService], data:{expectedRole:'ROLE_ADMIN'}},
+  {path: 'accounts/detail/:id', component: AccountDetailComponent, canActivate: [RoleGuardService], data:{expectedRole:'ROLE_ADMIN'}},
+  {path: 'users/add', component: RegisterComponent},
+  {path: 'users', component: ListUsersComponent},
+  {path: 'users/:id', component: ListUsersComponent},
+  {path: 'users/add/:id', component: RegisterComponent},
+  {path: 'products', component: ProductsComponent},
+  {path: 'products/all', component: ListProductComponent},
+  {path: 'products/:id', component: ProductsComponent},
+  {path: 'hospitals', component: ListHospitalsComponent},
+  {path: 'hospitals/add', component: FormHospitalComponent},
+  {path: 'hospitals/:id', component: FormHospitalComponent},
   {path: 'buildings', component: ListBuildingComponent},
   {path: 'buildings/add', component: FormBuildingComponent},
   {path: 'buildings/:id', component: FormBuildingComponent},
@@ -56,7 +53,7 @@ const routes: Routes = [
   {path: 'warehouse-product', component: WarehouseProductComponent},
   {path: 'warehouse-product/add', component: FormWarehouseProductComponent},
   {path: 'warehouse-product/:id', component: FormWarehouseProductComponent},
-  {path: 'warehouse-reposition/:id', component: RepositionWarehouseComponent, canActivate: [GestorGuardService], canActivateChild: [RepoGuardService]},
+  {path: 'warehouse-reposition/:id', component: RepositionWarehouseComponent},
   {path: 'stats', component: StatsComponent},
   {path: 'forgot-password', component: ForgotPasswordComponent},
   {path: 'empty-stock', component: EmptyStockComponent}
