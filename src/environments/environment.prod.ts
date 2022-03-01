@@ -1,8 +1,10 @@
 export const environment = {
   production: true,
-  authUrl:'http://localhost:5000/auth/',
-  accountUrl: 'http://localhost:5000/accounts/',
-  hospitalUrl: 'http://localhost:5000/hospital/',
-  buildingUrl: 'http://localhost:5000/buildings/',
-  wareHouseUrl: 'http://localhost:5000/warehouse/'
+  authUrl:'https://kanbansense.azurewebsites.net/auth/',
+  accountUrl: 'https://kanbansense.azurewebsites.net/accounts/',
+  hospitalUrl: 'https://kanbansense.azurewebsites.net/hospital/',
+  buildingUrl: 'https://kanbansense.azurewebsites.net/buildings/',
+  wareHouseUrl: 'https://kanbansense.azurewebsites.net/warehouse/',
+  wareHouseProductUrl: 'https://kanbansense.azurewebsites.net/warehouse-product/',
+  replacementUrl: 'https://kanbansense.azurewebsites.net/replacement/'
 };
