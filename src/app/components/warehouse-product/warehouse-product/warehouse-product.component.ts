@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { faFilePdf } from '@fortawesome/free-solid-svg-icons';
 import { Observable } from 'rxjs';
 import { WarehouseProduct } from 'src/app/models/warehouseProduct';
 import { RepositionService } from 'src/app/services/reposition.service';

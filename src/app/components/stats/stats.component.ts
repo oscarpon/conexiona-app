@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { faClock, faFileExcel, faFilePdf } from '@fortawesome/free-solid-svg-icons';
 import { ReplacementsData } from 'src/app/models/replacementsData';
 import { RepositionService } from 'src/app/services/reposition.service';
-import { TokenService } from 'src/app/services/token.service';
+import { TokenService } from 'src/app/services/token.service'; 
+
 
 @Component({
   selector: 'app-stats',
@@ -15,6 +17,9 @@ export class StatsComponent implements OnInit {
   replacementsData: ReplacementsData[] = [];
   size = 10;
   myAccountId: string;
+  faClock = faClock;
+  faFileExcel = faFileExcel;
+  faFilePdf = faFilePdf;
 
   constructor(
     private tokenService: TokenService,

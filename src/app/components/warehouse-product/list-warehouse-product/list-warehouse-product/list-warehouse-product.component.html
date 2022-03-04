@@ -20,12 +20,12 @@
         <th scope="col">Nombre Producto</th>
         <th scope="col">Cantidad disponible</th>
         <th scope="col">Borrar</th>
-        <th scope="col"><a (click)="exportData()">Exportar<fa-icon [icon]="faDownload"></fa-icon></a></th>
+        <th scope="col"><a (click)="exportData()">Pdf <fa-icon [icon]="faFilePdf"></fa-icon></a></th>
     </thead>
     <tbody>
         <tr *ngFor="let warehouseproduct of warehouseProducts">
             <td>{{warehouseproduct.products.nameProduct}}</td>
-            <td [ngClass]="{'table-danger': warehouseproduct.stock<3}">{{warehouseproduct.stock}}</td>
+            <td [ngClass]="{'alert-stock': warehouseproduct.stock<3}">{{warehouseproduct.stock}}</td>
             <td>
                 <a (click)='delete(warehouseproduct)' class="btn"><fa-icon [icon]="faTrash"></fa-icon></a>
             </td>

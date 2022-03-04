@@ -5,7 +5,6 @@ import { Read } from 'src/app/models/read';
 import { Warehouse } from 'src/app/models/warehouse';
 import { TokenService } from 'src/app/services/token.service';
 import { WarehouseProductService } from 'src/app/services/warehouse-product.service';
-import { WarehouseService } from 'src/app/services/warehouse.service';
 
 
 @Component({
@@ -23,7 +22,6 @@ export class ReadsComponent implements OnInit {
   constructor(
     private tokenService: TokenService,
     private wareProductService: WarehouseProductService,
-    private wareHouseService: WarehouseService,
     private dataFunctions: DataFunctions,
     private toastr: ToastrService
   ) { }
