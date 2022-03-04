@@ -52,6 +52,9 @@ export class ReadsComponent implements OnInit {
     this.wareProductService.findReadsByWareHouse(this.warehouseId).subscribe(
       data => {
         this.reads = data;
+        if(data.length == 0){
+          this.toastr.info("No existen lecturas para este almacén")
+        }
       },
       err => {
         console.log(err.error);

@@ -11,15 +11,18 @@
           </div>
     </div>
 </div>
-<div *ngIf="reads?.length != 0" class="table" id="htmlData">
-    <thead>
-        <th scope="col">Fecha de lectura</th>
-        <th scope="col">Producto</th>
-    </thead>
-    <tbody>
-        <tr *ngFor="let read of reads">
-            <td>{{read.date_read}}</td>
-            <td>{{read.nameProduct}}</td>
-        </tr>
-    </tbody>
+<div class="table-responsive">
+    <div *ngIf="reads?.length != 0" class="table" id="htmlData">
+        <thead>
+            <th scope="col">Fecha de lectura</th>
+            <th scope="col">Producto</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let read of reads">
+                <td>{{read.date_read | date: 'dd/MM/yyyy - hh:mm:ss'}}</td>
+                <td>{{read.nameProduct}}</td>
+            </tr>
+        </tbody>
+    </div>
 </div>
+
