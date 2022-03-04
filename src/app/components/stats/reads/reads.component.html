@@ -1,0 +1,25 @@
+<div class="form-group">
+    <div class="form-inline">
+        <label for="warehouse">Almacén *</label>
+        <select class="form-control ml-2" id="warehouse" name="warehouse" [(ngModel)]="warehouseId">
+            <option [value]="warehouse.id" *ngFor="let warehouse of warehouses">
+                {{ warehouse.wareHouseName }} - {{ warehouse.building.buildingName }}
+            </option>
+        </select>
+        <div class="d-flex">
+            <button class="btn btn-success ml-2" (click)='loadReads()'>Buscar productos</button>
+          </div>
+    </div>
+</div>
+<div *ngIf="reads?.length != 0" class="table" id="htmlData">
+    <thead>
+        <th scope="col">Fecha de lectura</th>
+        <th scope="col">Producto</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let read of reads">
+            <td>{{read.date_read}}</td>
+            <td>{{read.nameProduct}}</td>
+        </tr>
+    </tbody>
+</div>
