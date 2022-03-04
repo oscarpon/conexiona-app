@@ -8,6 +8,7 @@
       <li>
         <a [routerLink]="['/index']"><fa-icon [icon]="faHome" class="mr-2"></fa-icon>Inicio</a>
       </li>
+      <!--If is admin -- accounts -->
       <li *ngIf="isAdmin()">
         <a
           href="#homeSubmenu"
@@ -25,6 +26,7 @@
           </li>
         </ul>
       </li>
+      <!-- Si soy gestor -->
       <li *ngIf="isGestor()">
         <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><fa-icon [icon]="faUsers" class="mr-2"></fa-icon>Usuarios</a>
         <ul class="collapse list-unstyled" id="pageSubmenu">
@@ -42,7 +44,7 @@
           </li>
         </ul>
       </li>
-      <li>
+      <li *ngIf="isGestor()">
         <a href="#productsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><fa-icon [icon]="faPills" class="mr-2"></fa-icon>Productos</a>
         <ul class="collapse list-unstyled" id="productsSubmenu">
           <li>
@@ -56,7 +58,7 @@
           </li>
         </ul>
       </li>
-      <li>
+      <li *ngIf="isGestor()">
         <a href="#hospitalsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><fa-icon [icon]="faHospital" class="mr-2"></fa-icon>Hospitales</a>
         <ul class="collapse list-unstyled" id="hospitalsSubmenu">
           <li>
@@ -67,18 +69,18 @@
           </li>
         </ul>
       </li>
-      <li>
+      <li *ngIf="isGestor()">
         <a href="#wareHouseSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><fa-icon [icon]="faBoxOpen" class="mr-2"></fa-icon>Almacenes</a>
         <ul class="collapse list-unstyled" id="wareHouseSubmenu">
           <li>
-            <a href="#">Añadir</a>
+            <a [routerLink]="['/warehouse/add']">Añadir</a>
           </li>
           <li>
             <a [routerLink]="['/warehouses']">Ver</a>
           </li>
         </ul>
       </li>
-      <li>
+      <li *ngIf="isGestor()">
         <a href="#buildingsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><fa-icon [icon]="faBuilding" class="mr-2"></fa-icon>Edificios</a>
         <ul class="collapse list-unstyled" id="buildingsSubmenu">
           <li>

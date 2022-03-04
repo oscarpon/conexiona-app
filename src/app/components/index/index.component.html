@@ -96,12 +96,12 @@
   El reponedor funciona
 </div>
 
-<div class="col" *ngIf="isTabletFunc()">
+<div class="col mt-5" *ngIf="isTabletFunc()">
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title">Hospitales</h5>
-      <p class="card-text">Desde aquí puedes gestionar todo lo relativo a las cuentas.</p>
-      <button class="btn btn-primary">Hospitales</button>
+      <h5 class="card-title">Reposiciones</h5>
+      <p class="card-text">Control de reposiciones y stock de almacenes</p>
+      <button class="btn btn-primary" [routerLink]="['/warehouse-product']">Control de stock</button>
     </div>
   </div>
 </div>

@@ -24,6 +24,7 @@
                     <input type="number" id="quantity" name="quantity" class="form-control" [(ngModel)]="quantity" required>
                     <div class="d-flex">
                         <button class="btn btn-success ml-2" [disabled]="!form.valid" (click)='addReplacementItem(quantity, product)'>Añadir</button>
+                        <button class="btn btn-primary ml-2" [routerLink]="['/warehouse-product']">Volver</button>
                     </div>
                 </div>
             </div>
