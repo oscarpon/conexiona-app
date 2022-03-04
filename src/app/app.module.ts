@@ -45,6 +45,8 @@ import { StatsComponent } from './components/stats/stats.component';
 import { ForgotPasswordComponent } from './components/auth/forgot-password/forgot-password.component';
 import { EmptyStockComponent } from './components/stats/empty-stock/empty-stock.component';
 import { RoleGuardService } from './guards/role-guard.service';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+
 
 
 
@@ -82,7 +84,8 @@ import { RoleGuardService } from './guards/role-guard.service';
     RepositionWarehouseComponent,
     StatsComponent,
     ForgotPasswordComponent,
-    EmptyStockComponent
+    EmptyStockComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

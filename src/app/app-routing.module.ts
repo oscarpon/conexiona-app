@@ -12,6 +12,7 @@ import { ListBuildingComponent } from './components/building/list-building/list-
 import { FormHospitalComponent } from './components/hospitals/form-hospital/form-hospital.component';
 import { ListHospitalsComponent } from './components/hospitals/list-hospitals/list-hospitals.component';
 import { IndexComponent } from './components/index/index.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ListProductComponent } from './components/products/list-product/list-product.component';
 import { ProductsComponent } from './components/products/products/products.component';
 import { EmptyStockComponent } from './components/stats/empty-stock/empty-stock.component';
@@ -33,10 +34,10 @@ const routes: Routes = [
   {path: 'accounts/add', component: FormsComponent, canActivate: [RoleGuardService], data:{expectedRole:'ROLE_ADMIN'}},
   {path: 'accounts/add/:id', component: FormsComponent, canActivate: [RoleGuardService], data:{expectedRole:'ROLE_ADMIN'}},
   {path: 'accounts/detail/:id', component: AccountDetailComponent, canActivate: [RoleGuardService], data:{expectedRole:'ROLE_ADMIN'}},
-  {path: 'users/add', component: RegisterComponent},
-  {path: 'users', component: ListUsersComponent},
-  {path: 'users/:id', component: ListUsersComponent},
-  {path: 'users/add/:id', component: RegisterComponent},
+  {path: 'users/add', component: RegisterComponent, canActivate: [RoleGuardService], data:{expectedRole:'ROLE_ADMIN'}},
+  {path: 'users', component: ListUsersComponent, canActivate: [RoleGuardService], data:{expectedRole:'ROLE_ADMIN'}},
+  {path: 'users/:id', component: ListUsersComponent, canActivate: [RoleGuardService], data:{expectedRole:'ROLE_GESTOR'}},
+  {path: 'users/add/:id', component: RegisterComponent, canActivate: [RoleGuardService], data:{expectedRole:'ROLE_GESTOR'}},
   {path: 'products', component: ProductsComponent},
   {path: 'products/all', component: ListProductComponent},
   {path: 'products/:id', component: ProductsComponent},
@@ -56,7 +57,8 @@ const routes: Routes = [
   {path: 'warehouse-reposition/:id', component: RepositionWarehouseComponent},
   {path: 'stats', component: StatsComponent},
   {path: 'forgot-password', component: ForgotPasswordComponent},
-  {path: 'empty-stock', component: EmptyStockComponent}
+  {path: 'empty-stock', component: EmptyStockComponent},
+  {path: '**', component: NotFoundComponent }
 
 
   
