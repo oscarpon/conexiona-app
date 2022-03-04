@@ -12,6 +12,7 @@ import { ListBuildingComponent } from './components/building/list-building/list-
 import { FormHospitalComponent } from './components/hospitals/form-hospital/form-hospital.component';
 import { ListHospitalsComponent } from './components/hospitals/list-hospitals/list-hospitals.component';
 import { IndexComponent } from './components/index/index.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ListProductComponent } from './components/products/list-product/list-product.component';
 import { ProductsComponent } from './components/products/products/products.component';
 import { EmptyStockComponent } from './components/stats/empty-stock/empty-stock.component';
@@ -56,7 +57,8 @@ const routes: Routes = [
   {path: 'warehouse-reposition/:id', component: RepositionWarehouseComponent},
   {path: 'stats', component: StatsComponent},
   {path: 'forgot-password', component: ForgotPasswordComponent},
-  {path: 'empty-stock', component: EmptyStockComponent}
+  {path: 'empty-stock', component: EmptyStockComponent},
+  {path: '**', component: NotFoundComponent }
 
 
   
