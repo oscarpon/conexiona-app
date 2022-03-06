@@ -10,7 +10,8 @@ export const environment = {
   buildingUrl: 'http://localhost:5000/buildings/',
   wareHouseUrl: 'http://localhost:5000/warehouse/',
   wareHouseProductUrl: 'http://localhost:5000/warehouse-product/',
-  replacementUrl: 'http://localhost:5000/replacement/'
+  replacementUrl: 'http://localhost:5000/replacement/',
+  productUrl: 'http://localhost:5000/products/',
 };
 
 /*
