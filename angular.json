@@ -36,7 +36,8 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/assets/css/bootstrap.min.css",
               "src/styles.css",
-              "src/assets/css/toast.css"
+              "src/assets/css/toast.css",
+              "src/assets/css/line-scale.css"
             ],
             "scripts": [
               "src/assets/js/bootstrap.bundle.min.js",
