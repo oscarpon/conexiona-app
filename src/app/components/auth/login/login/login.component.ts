@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
         this.isLogged = false;
         this.isLogginFail = true;
         this.errorMsj = err.error.message;
-        console.log(err.error.message);
+        console.log(err.error);
         swal.fire({
           icon: 'error',
           title: 'Oops...',
