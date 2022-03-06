@@ -5,7 +5,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { TokenService } from 'src/app/services/token.service';
 import { WarehouseProductService } from 'src/app/services/warehouse-product.service';
 import { WarehouseService } from 'src/app/services/warehouse.service';
-import { faDownload, faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faFilePdf, faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
 import Swal from 'sweetalert2';
 import { ToastrService } from 'ngx-toastr';
 import { NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
@@ -20,7 +20,7 @@ export class ListWarehouseProductComponent implements OnInit {
   warehouseProducts: WarehouseProduct[] = [];
   warehouses: Warehouse[] = [];
   warehouseId = '';
-  faDownload = faDownload;
+  faFilePdf = faFilePdf;
   faTrash = faTrash;
   faEdit = faEdit;
   @Output() wareHouseEmitter = new EventEmitter<any>();

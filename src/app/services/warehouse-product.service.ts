@@ -42,4 +42,8 @@ export class WarehouseProductService {
     return this.http.get<any>(this.warehouseProductUrl + `empty-stock/${accountId}`);
   }
 
+  public findReadsByWareHouse(wareHouseId: string): Observable<any>{
+    return this.http.get<any>(this.warehouseProductUrl + `reads/${wareHouseId}`);
+  }
+
 }

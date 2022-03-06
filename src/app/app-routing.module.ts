@@ -16,6 +16,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ListProductComponent } from './components/products/list-product/list-product.component';
 import { ProductsComponent } from './components/products/products/products.component';
 import { EmptyStockComponent } from './components/stats/empty-stock/empty-stock.component';
+import { ReadsComponent } from './components/stats/reads/reads.component';
 import { StatsComponent } from './components/stats/stats.component';
 import { ListUsersComponent } from './components/users/list-users/list-users.component';
 import { FormWarehouseProductComponent } from './components/warehouse-product/form-warehouse-product/form-warehouse-product/form-warehouse-product.component';
@@ -58,6 +59,7 @@ const routes: Routes = [
   {path: 'stats', component: StatsComponent},
   {path: 'forgot-password', component: ForgotPasswordComponent},
   {path: 'empty-stock', component: EmptyStockComponent},
+  {path: 'reads', component: ReadsComponent},
   {path: '**', component: NotFoundComponent }
 
 

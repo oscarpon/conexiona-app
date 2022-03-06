@@ -46,6 +46,8 @@ import { ForgotPasswordComponent } from './components/auth/forgot-password/forgo
 import { EmptyStockComponent } from './components/stats/empty-stock/empty-stock.component';
 import { RoleGuardService } from './guards/role-guard.service';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ReadsComponent } from './components/stats/reads/reads.component';
+import { DataFunctions } from './functions/data-functions';
 
 
 
@@ -85,7 +87,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     StatsComponent,
     ForgotPasswordComponent,
     EmptyStockComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ReadsComponent
   ],
   imports: [
     BrowserModule,
@@ -102,7 +105,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     NgxSpinnerModule,
     FontAwesomeModule
   ],
-  providers: [interceptorProvider, RoleGuardService],
+  providers: [interceptorProvider, RoleGuardService, DataFunctions],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
