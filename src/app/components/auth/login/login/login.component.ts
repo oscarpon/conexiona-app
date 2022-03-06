@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { CookieService } from 'ngx-cookie-service';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { LoginUser } from 'src/app/models/login-user';
 import { AuthService } from 'src/app/services/auth.service';
 import { TokenService } from 'src/app/services/token.service';
@@ -34,7 +35,8 @@ export class LoginComponent implements OnInit {
     private tokenService: TokenService,
     private authService: AuthService,
     private cookieSrvc: CookieService,
-    private router: Router
+    private router: Router,
+    private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit() {
@@ -46,18 +48,17 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(): void{
+    this.spinner.show();
     this.loginUser = new LoginUser(this.userName, this.password);
     this.authService.login(this.loginUser).subscribe(
       data => {
         this.isLogged = true;
         this.tokenService.setToken(data.token);
-        if(this.isAdmin()){
-          this.router.navigate(['/index']);
-        }else{
-          this.router.navigate(['/index']);
-        }
+        this.spinner.hide();
+        this.router.navigate(['/index']);
       },
       err => {
+        this.spinner.hide();
         this.isLogged = false;
         this.isLogginFail = true;
         this.errorMsj = err.error.message;
