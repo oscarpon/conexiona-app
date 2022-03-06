@@ -6,5 +6,6 @@ export const environment = {
   buildingUrl: 'https://kanbansense.azurewebsites.net/buildings/',
   wareHouseUrl: 'https://kanbansense.azurewebsites.net/warehouse/',
   wareHouseProductUrl: 'https://kanbansense.azurewebsites.net/warehouse-product/',
-  replacementUrl: 'https://kanbansense.azurewebsites.net/replacement/'
+  replacementUrl: 'https://kanbansense.azurewebsites.net/replacement/',
+  productUrl: 'https://kanbansense.azurewebsites.net/products/',
 };
