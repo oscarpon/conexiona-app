@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { faClock, faFileExcel, faFilePdf } from '@fortawesome/free-solid-svg-icons';
+import { faArrowCircleRight, faClock, faFileExcel, faFilePdf } from '@fortawesome/free-solid-svg-icons';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ReplacementsData } from 'src/app/models/replacementsData';
 import { RepositionService } from 'src/app/services/reposition.service';
 import { TokenService } from 'src/app/services/token.service';
+
 
 
 @Component({
@@ -21,6 +22,7 @@ export class StatsComponent implements OnInit {
   faClock = faClock;
   faFileExcel = faFileExcel;
   faFilePdf = faFilePdf;
+  faArrowCircleRight = faArrowCircleRight;
 
   constructor(
     private tokenService: TokenService,
