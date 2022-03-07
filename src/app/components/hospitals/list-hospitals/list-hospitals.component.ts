@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faEdit, faEye, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { Account } from 'src/app/models/account';
 import { Hospital } from 'src/app/models/hospital';
@@ -40,10 +41,12 @@ export class ListHospitalsComponent implements OnInit {
     private accountService: AccountService,
     private hospitalService: HospitalService,
     private authService: AuthService,
-    private toast: ToastrService
+    private toast: ToastrService,
+    private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit() {
+    this.spinner.show();
     this.isAdmin();
     this.getAccount();
     if(this.isAdmin()){
@@ -76,6 +79,7 @@ export class ListHospitalsComponent implements OnInit {
       this.hospitalService.all().subscribe(
         data => {
           this.hospitals = data;
+          this.spinner.hide();
         },
         err => {
           this.toast.error('Error loading users', 'ERROR');
@@ -85,6 +89,7 @@ export class ListHospitalsComponent implements OnInit {
       this.hospitalService.getbyAccount(this.myAccountId).subscribe(
         data => {
           this.hospitals = data;
+          this.spinner.hide();
         },
         err => {
           console.log(err);

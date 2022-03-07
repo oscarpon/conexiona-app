@@ -1,14 +1,14 @@
 import { HttpClient } from '@angular/common/http';
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { faEdit, faEye, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Account } from 'src/app/models/account';
 import { NewUser } from 'src/app/models/new-user';
 import { AccountService } from 'src/app/services/account.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { TokenService } from 'src/app/services/token.service';
 import Swal from 'sweetalert2';
-
-
 
 
 
@@ -38,17 +38,19 @@ export class ListUsersComponent implements OnInit {
     private tokenService: TokenService,
     private http: HttpClient,
     private authService: AuthService,
-    private accountService: AccountService
+    private accountService: AccountService,
+    private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit(){
+    this.spinner.show();
     this.isAdmin();
-    this.isManager();
-    this.getAccount();
-    this.loadUsers();
     if(this.isAdmin()){
       this.loadAccounts();
     }
+    this.isManager();
+    this.getAccount();
+    this.loadUsers();
   }
 
   getAccount(): string{
@@ -68,6 +70,7 @@ export class ListUsersComponent implements OnInit {
       this.authService.all().subscribe(
         data => {
           this.users = data;
+          this.spinner.hide();
         },
         err => {
           console.log(err);
@@ -77,6 +80,7 @@ export class ListUsersComponent implements OnInit {
       this.authService.listByAccount(this.myAccountId).subscribe(
         data => {
           this.users = data;
+          this.spinner.hide();
         },
         err => {
           console.log(err);

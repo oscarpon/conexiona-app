@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { faClock, faFileExcel, faFilePdf } from '@fortawesome/free-solid-svg-icons';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ReplacementsData } from 'src/app/models/replacementsData';
 import { RepositionService } from 'src/app/services/reposition.service';
-import { TokenService } from 'src/app/services/token.service'; 
+import { TokenService } from 'src/app/services/token.service';
 
 
 @Component({
@@ -23,10 +24,12 @@ export class StatsComponent implements OnInit {
 
   constructor(
     private tokenService: TokenService,
-    private repositionService: RepositionService
+    private repositionService: RepositionService,
+    private spinner: NgxSpinnerService
   ) {}
 
   ngOnInit() {
+    this.spinner.show();
     this.getAccount();
     this.loadHistorial();
   }
@@ -35,6 +38,7 @@ export class StatsComponent implements OnInit {
     this.repositionService.historyReplacement(this.myAccountId).subscribe(
       data => {
         this.replacementsData = data;
+        this.spinner.hide();
       },
       err => {
         console.log(err);

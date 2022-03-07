@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { Account } from 'src/app/models/account';
 import { Building } from 'src/app/models/building';
@@ -13,7 +14,6 @@ import { TokenService } from 'src/app/services/token.service';
 import { WarehouseService } from 'src/app/services/warehouse.service';
 import Swal from 'sweetalert2';
 import { ListHospitalsComponent } from '../../hospitals/list-hospitals/list-hospitals.component';
-
 
 
 @Component({
@@ -42,10 +42,12 @@ export class ListWarehouseComponent implements OnInit {
     private toastr: ToastrService,
     private accountService: AccountService,
     private hospitalService: HospitalService,
-    private tokenService: TokenService
+    private tokenService: TokenService,
+    private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit() {
+    this.spinner.show();
     this.isAdmin();
     this.getAccount();
     if(this.isAdmin()){
@@ -113,6 +115,7 @@ export class ListWarehouseComponent implements OnInit {
       this.hospitalService.all().subscribe(
         data => {
           this.hospitals = data;
+          this.spinner.hide();
         },
         err => {
           console.log(err);
@@ -123,6 +126,7 @@ export class ListWarehouseComponent implements OnInit {
       this.hospitalService.getbyAccount(this.myAccountId).subscribe(
         data => {
           this.hospitals = data;
+          this.spinner.hide();
         },
         err => {
           console.log(err);
