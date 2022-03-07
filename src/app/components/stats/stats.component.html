@@ -27,7 +27,7 @@
             <tbody>
                 <tr *ngFor="let i = index ;let hist of replacementsData">
                     <td>{{i+1}}</td>
-                    <td>{{hist.date}}</td>
+                    <td>{{hist.date | date: 'dd/MM/yyyy'}}</td>
                     <td>{{hist.userName}}</td>
                     <td>{{hist.wareHouseName}}</td>
                     <td>{{hist.buildingName}}</td>
