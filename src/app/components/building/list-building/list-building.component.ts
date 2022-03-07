@@ -1,6 +1,8 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faThumbsDown, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { Account } from 'src/app/models/account';
 import { Building } from 'src/app/models/building';
@@ -10,6 +12,7 @@ import { BuildingService } from 'src/app/services/building.service';
 import { HospitalService } from 'src/app/services/hospital.service';
 import { TokenService } from 'src/app/services/token.service';
 import Swal from 'sweetalert2';
+
 
 
 
@@ -37,16 +40,18 @@ export class ListBuildingComponent implements OnInit {
     private buildingService: BuildingService,
     private toastr: ToastrService,
     private accountService: AccountService,
-    private tokenService: TokenService
+    private tokenService: TokenService,
+    private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit() {
+    this.spinner.show();
     this.isAdmin();
-    this.loadHospitals();
-    this.loadBuildings();
     if(this.isAdmin()){
       this.loadAccounts();
     }
+    this.loadHospitals();
+    this.loadBuildings();
   }
 
   loadHospitals(): void{
@@ -75,6 +80,7 @@ export class ListBuildingComponent implements OnInit {
       this.buildingService.all().subscribe(
         data => {
           this.buildings = data;
+          this.spinner.hide();
         },
         err => {
           console.log(err);
