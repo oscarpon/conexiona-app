@@ -1,6 +1,6 @@
 export class ReplacementsData{
 
-    id?: number;
+    id?: string;
     date: string;
     userName: string;
     wareHouseName: string;

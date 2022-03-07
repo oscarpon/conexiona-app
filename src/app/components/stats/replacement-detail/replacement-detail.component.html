@@ -1,0 +1,20 @@
+<div class="container">
+    <h2 class="mt-3">Detalle de la reposición:</h2>
+    <div class="row table-responsive mt-3">
+        <table class="table table-striped ">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th>Cantidad</th>
+                    <th>Producto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let i = index ;let item of replacementItem">
+                    <td>{{i+1}}</td>
+                    <td>{{item.quantity}}</td>
+                    <td>{{item.productName}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>

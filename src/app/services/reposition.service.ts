@@ -38,4 +38,8 @@ export class RepositionService {
     return this.http.get(this.replacementUrl + `export-data/excel/${id}`, {responseType: 'blob'});
   }
 
+  public repositionDetail(id: string): Observable<any>{
+    return this.http.get(this.replacementUrl + `detail/${id}`);
+  }
+
 }
