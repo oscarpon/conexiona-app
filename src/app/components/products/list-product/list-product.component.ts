@@ -2,6 +2,7 @@ import { TokenizeResult } from '@angular/compiler/src/ml_parser/lexer';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { Account } from 'src/app/models/account';
 import { Products } from 'src/app/models/products';
@@ -10,7 +11,6 @@ import { AuthService } from 'src/app/services/auth.service';
 import { ProductsService } from 'src/app/services/products.service';
 import { TokenService } from 'src/app/services/token.service';
 import Swal from 'sweetalert2';
-
 
 
 
@@ -40,11 +40,14 @@ export class ListProductComponent implements OnInit {
     private toastr: ToastrService,
     private accountService: AccountService,
     private productService: ProductsService,
-    private tokenService: TokenService) {
+    private tokenService: TokenService,
+    private spinner: NgxSpinnerService
+    ) {
    
    }
 
   ngOnInit() {
+    this.spinner.show();
     this.isAdmin();
     this.getAccount();
     if(this.isAdmin()){
@@ -73,6 +76,7 @@ export class ListProductComponent implements OnInit {
       this.productService.all().subscribe(
         data => {
           this.products = data;
+          this.spinner.hide();
         },
         err => {
           console.log(err);
@@ -82,6 +86,7 @@ export class ListProductComponent implements OnInit {
       this.productService.listByAccount(this.myAccountId).subscribe(
         data => {
           this.products = data;
+          this.spinner.hide();
         },
         err => {
           console.log(err);
