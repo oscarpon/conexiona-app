@@ -48,6 +48,7 @@ export class RegisterComponent implements OnInit {
       this.loadAccounts();
     }
     this.getAccount();
+    this.loadUser();
   }
 
   public create(): void{

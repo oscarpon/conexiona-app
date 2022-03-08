@@ -18,8 +18,8 @@
                     <label for="nombre" *ngIf="!newUser.id" >Repite contraseña:</label>
                     <input type="password" class="form-control" name="password" id="password"
                     [(ngModel)]="repeatPassword" required *ngIf="!newUser.id" >
-                    <label for="nombre">Rol de usuario:</label>
-                    <select class="form-control" id="roles" name="roles" required [(ngModel)]="rol">
+                    <label for="nombre" *ngIf="!newUser.id">Rol de usuario:</label>
+                    <select class="form-control" id="roles" name="roles" required [(ngModel)]="rol" *ngIf="!newUser.id">
                         <option [value]="rol" *ngFor="let rol of rolesList">{{rol}}</option>
                     </select>
                     <div *ngIf="isAdmin()">
