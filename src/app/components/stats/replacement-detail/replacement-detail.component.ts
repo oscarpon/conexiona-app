@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { parseMetadata } from '@angular/localize/src/utils';
 import { ActivatedRoute } from '@angular/router';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { ReplacementItems } from 'src/app/models/replacementItems';
 import { RepositionService } from 'src/app/services/reposition.service';
+
 
 @Component({
   selector: 'app-replacement-detail',
@@ -12,6 +14,7 @@ import { RepositionService } from 'src/app/services/reposition.service';
 export class ReplacementDetailComponent implements OnInit {
 
   public replacementItem: ReplacementItems[] = [];
+  faArrowleft = faArrowLeft;
 
   constructor(
     private activatedRoute: ActivatedRoute,
