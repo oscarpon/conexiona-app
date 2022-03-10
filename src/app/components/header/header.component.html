@@ -1,7 +1,6 @@
 <div *ngIf="isLogged()">
   <nav class="navbar navbar-light bg-light">
     <div class="dropdown">
-
       <button class="btn btn-black dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
         <fa-icon [icon]="faUser" class="mr-1"></fa-icon>
@@ -14,7 +13,7 @@
           <a class="dropdown-item" (click)="onLogOut()">Logout<fa-icon [icon]="faDoorOpen" class="ml-1"></fa-icon></a>
         </li>
         <li>
-          <a class="dropdown-item" [routerLink]="['/updatePassword']">Setup<fa-icon [icon]="faKey" class="ml-1">
+          <a class="dropdown-item" [routerLink]="['/updatePassword']">Contraseña<fa-icon [icon]="faKey" class="ml-1">
             </fa-icon></a>
         </li>
       </ul>

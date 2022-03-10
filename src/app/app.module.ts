@@ -48,6 +48,7 @@ import { RoleGuardService } from './guards/role-guard.service';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ReadsComponent } from './components/stats/reads/reads.component';
 import { DataFunctions } from './functions/data-functions';
+import { ReplacementDetailComponent } from './components/stats/replacement-detail/replacement-detail.component';
 
 
 
@@ -88,7 +89,8 @@ import { DataFunctions } from './functions/data-functions';
     ForgotPasswordComponent,
     EmptyStockComponent,
     NotFoundComponent,
-    ReadsComponent
+    ReadsComponent,
+    ReplacementDetailComponent
   ],
   imports: [
     BrowserModule,

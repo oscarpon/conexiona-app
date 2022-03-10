@@ -17,6 +17,7 @@ import { ListProductComponent } from './components/products/list-product/list-pr
 import { ProductsComponent } from './components/products/products/products.component';
 import { EmptyStockComponent } from './components/stats/empty-stock/empty-stock.component';
 import { ReadsComponent } from './components/stats/reads/reads.component';
+import { ReplacementDetailComponent } from './components/stats/replacement-detail/replacement-detail.component';
 import { StatsComponent } from './components/stats/stats.component';
 import { ListUsersComponent } from './components/users/list-users/list-users.component';
 import { FormWarehouseProductComponent } from './components/warehouse-product/form-warehouse-product/form-warehouse-product/form-warehouse-product.component';
@@ -60,6 +61,7 @@ const routes: Routes = [
   {path: 'forgot-password', component: ForgotPasswordComponent},
   {path: 'empty-stock', component: EmptyStockComponent},
   {path: 'reads', component: ReadsComponent},
+  {path: 'replacements/detail/:id', component: ReplacementDetailComponent},
   {path: '**', component: NotFoundComponent }
 
 
