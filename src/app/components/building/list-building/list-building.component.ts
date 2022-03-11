@@ -91,6 +91,7 @@ export class ListBuildingComponent implements OnInit {
       this.buildingService.listByAccount(this.myAccountId).subscribe(
         data => {
           this.buildings = data;
+          this.spinner.hide();
         },
         err => {
           console.log(err);
