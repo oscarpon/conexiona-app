@@ -44,7 +44,7 @@
       <div class="card-body">
         <h5 class="card-title">Hospitales</h5>
         <p class="card-text">Desde aquí puedes ver los diferentes hospitales de la cuenta.</p>
-        <button class="btn btn-primary">Hospitales</button>
+        <button class="btn btn-primary" routerLink="/hospitals">Hospitales</button>
       </div>
     </div>
 
@@ -55,24 +55,8 @@
             Stock
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"><a href="#" class="stretched-link">Consultar</a></li>
-            <li class="list-group-item"><a [routerLink]="['/empty-stock']" class="stretched-link"></a>Medicamentos agotados
-              <span class="badge badge-primary badge-pill">{{productsStockCero}}</span>
-            </li>
-            <li class="list-group-item"><a href="#" class="stretched-link"></a>Informes</li>
-            <li class="list-group-item"><a href="#" class="stretched-link"></a>Historial</li>
-          </ul>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card mt-3" style="width: 18rem;">
-          <div class="card-header">
-            Almacenes
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item"><a href="#" class="stretched-link">Listado</a></li>
-            <li class="list-group-item"><a href="#" class="stretched-link"></a>Gestionar</li>
-            <li class="list-group-item"><a href="#" class="stretched-link"></a>Informe de stock</li>
+            <li class="list-group-item"><a [routerLink]="['/warehouse-product']" class="stretched-link">Consultar</a></li>
+            <li class="list-group-item"><a [routerLink]="['/stats']" class="stretched-link"></a>Historial reposiciones</li>
           </ul>
         </div>
       </div>
@@ -82,8 +66,9 @@
             Alertas
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"><a href="#" class="stretched-link">Medicamentos</a></li>
-            <li class="list-group-item"><a href="#" class="stretched-link"></a>Enfermería</li>
+            <li class="list-group-item"><a [routerLink]="['/empty-stock']" class="stretched-link"></a>Medicamentos agotados
+              <span class="badge badge-primary badge-pill">{{productsStockCero}}</span>
+            </li>
           </ul>
         </div>
       </div>

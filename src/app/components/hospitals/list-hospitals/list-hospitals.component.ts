@@ -88,8 +88,8 @@ export class ListHospitalsComponent implements OnInit {
     }else{
       this.hospitalService.getbyAccount(this.myAccountId).subscribe(
         data => {
-          this.hospitals = data;
           this.spinner.hide();
+          this.hospitals = data;
         },
         err => {
           console.log(err);
