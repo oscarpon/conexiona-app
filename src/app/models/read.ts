@@ -1,5 +1,5 @@
 export class Read{
     id?: string;
-    date_read: Date;
+    date_read: string;
     nameProduct: string;
 }
