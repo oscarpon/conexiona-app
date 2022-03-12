@@ -101,7 +101,7 @@ export class FormBuildingComponent implements OnInit {
     this.buildingService.update(this.newBuilding).subscribe(
       building => {
         this.router.navigate(['/buildings']);
-        this.toastr.success('Hospital actualizado', 'OK', {
+        this.toastr.success('Edificio actualizado', 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
       },
