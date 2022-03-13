@@ -19,6 +19,7 @@ export class WarehouseProductComponent implements OnInit {
   isAdministrator: boolean;
   myAccountId: string;
   isGestor: boolean;
+  isTablet: boolean;
   warehouseProductsList: WarehouseProduct[] = [];
 
   
@@ -44,6 +45,10 @@ export class WarehouseProductComponent implements OnInit {
 
   isGestorFunc(): boolean{
     return this.isGestor = this.tokenService.isGestor();
+  }
+
+  isTabletFunc(): boolean{
+    return this.isTablet = this.tokenService.isTablet();
   }
 
   getAccount(): string{

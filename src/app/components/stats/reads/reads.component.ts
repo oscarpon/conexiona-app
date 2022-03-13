@@ -49,7 +49,11 @@ export class ReadsComponent implements OnInit {
   loadReads(): void{
     this.wareProductService.findReadsByWareHouse(this.warehouseId).subscribe(
       data => {
-        this.reads = data;
+        if(data.length > 10){
+          this.reads = data.slice(0,10);
+        }else{
+          this.reads = data;
+        }
         if(data.length == 0){
           this.toastr.info("No existen lecturas para este almacén")
         }
