@@ -2,5 +2,7 @@
     "appService.zipIgnorePattern": [
         "node_modules{,/**}",
         ".vscode{,/**}"
-    ]
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/2b670f95-2ecd-480a-9fe8-e115fc599922/resourceGroups/opbaquero-group/providers/Microsoft.Web/sites/kanbansense-app",
+    "appService.deploySubpath": "dist/conexiona-app"
 }
