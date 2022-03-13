@@ -1,4 +1,3 @@
-import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { faEdit, faThumbsDown, faTrash } from '@fortawesome/free-solid-svg-icons';
