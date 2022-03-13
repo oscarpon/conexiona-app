@@ -1,5 +1,7 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import {RouterTestingModule} from '@angular/router/testing';
+import { ToastrModule } from 'ngx-toastr';
 import { FormBuildingComponent } from './form-building.component';
 
 describe('FormBuildingComponent', () => {
@@ -8,6 +10,7 @@ describe('FormBuildingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [RouterTestingModule, ToastrModule.forRoot(), HttpClientTestingModule],
       declarations: [ FormBuildingComponent ]
     })
     .compileComponents();

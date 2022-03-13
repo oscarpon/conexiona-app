@@ -18,23 +18,6 @@
       </div>
     </div>
   </div>
-  <div class="col">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Edificios</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-        <button class="btn btn-primary" routerLink="/buildings">Usuarios</button>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Productos</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
 </div>
 </div>
 <div class="col" *ngIf="isGestor() && !isAdmin()">
@@ -56,7 +39,7 @@
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item"><a [routerLink]="['/warehouse-product']" class="stretched-link">Consultar</a></li>
-            <li class="list-group-item"><a [routerLink]="['/stats']" class="stretched-link"></a>Historial reposiciones</li>
+            <li class="list-group-item"><a [routerLink]="['/stats']" class="stretched-link">Historial reposiciones</a></li>
           </ul>
         </div>
       </div>
@@ -66,7 +49,7 @@
             Alertas
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"><a [routerLink]="['/empty-stock']" class="stretched-link"></a>Medicamentos agotados
+            <li class="list-group-item"><a [routerLink]="['/empty-stock']" class="stretched-link">Medicamentos agotados</a>
               <span class="badge badge-primary badge-pill">{{productsStockCero}}</span>
             </li>
           </ul>
@@ -77,9 +60,34 @@
   </div>
 </div>
 
-<div class="col" *ngIf="!isGestor() && !isAdmin() && isStockistFunc()">
-  El reponedor funciona
+<div class="container" *ngIf="!isGestor() && !isAdmin() && isStockistFunc()">
+
+  <div class="row">
+    <div class="col">
+      <div class="card mt-3" style="width: 18rem;">
+        <div class="card-header">
+          Stock
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><a [routerLink]="['/warehouse-product']" class="stretched-link">Reposiciones</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card mt-3" style="width: 18rem;">
+        <div class="card-header bg-danger text-white">
+          Alertas
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><a [routerLink]="['/empty-stock']" class="stretched-link">Medicamentos agotados</a>
+            <span class="badge badge-primary badge-pill">{{productsStockCero}}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
+
 
 
 <div class="col mt-5" *ngIf="isTabletFunc()">

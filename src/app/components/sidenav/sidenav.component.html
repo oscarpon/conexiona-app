@@ -92,17 +92,22 @@
         </ul>
       </li>
       <li *ngIf="isGestor() && !isAdmin()">
-        <a href="#statsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><fa-icon [icon]="faChartBar" class="mr-2"></fa-icon>Estadísticas</a>
+        <a href="#statsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><fa-icon [icon]="faChartBar" class="mr-2"></fa-icon>Historial</a>
         <ul class="collapse list-unstyled" id="statsSubmenu">
-          <li>
-            <a [routerLink]="['/']">Añadir</a>
-          </li>
           <li>
             <a [routerLink]="['/stats']">Ver</a>
           </li>
         </ul>
       </li>
-      
+      <!--If is reponedor-->
+      <li *ngIf="isReponedor() && !isAdmin()">
+        <a href="#productsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><fa-icon [icon]="faPills" class="mr-2"></fa-icon>Productos</a>
+        <ul class="collapse list-unstyled" id="productsSubmenu">
+          <li>
+            <a [routerLink]="['warehouse-product']" *ngIf="!isAdmin()">Control de stock</a>
+          </li>
+        </ul>
+      </li>
     </ul>
   </nav>
 </div>
